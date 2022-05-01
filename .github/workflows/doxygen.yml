@@ -2,7 +2,7 @@ name: Document generation
 on:
   push:
     paths:
-      - "**.cs"
+      - "**/**.cs"
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
