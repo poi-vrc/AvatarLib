@@ -1,4 +1,4 @@
-# VRCAvatarLib
+# AvatarLib
 
 Contains a bunch of quick-to-use APIs for plugins and applications to add, modify a VRChat avatar. This is created because one or more tools of mine share the same code.
 
