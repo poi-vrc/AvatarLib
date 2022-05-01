@@ -73,15 +73,6 @@ crashlytics-build.properties
 .vsconfig
 /[Aa]ssets/[Rr]esources
 
-# Ignore vrchat sdk files
-/[Aa]ssets/prefab-id-*
-/[Aa]ssets/VRCSDK/
-/[Aa]ssets/VRCSDK.meta
-
-# Ignore DynamicBone files
-/[Aa]ssets/DynamicBone/
-/[Aa]ssets/DynamicBone.meta
-
 # Ignore generated docs
 docs/
 docs

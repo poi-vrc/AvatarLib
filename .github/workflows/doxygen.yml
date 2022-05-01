@@ -2,6 +2,8 @@ name: Document generation
 
 on:
   push:
+    branches:
+      - master
     paths:
       - "**.cs"
       
