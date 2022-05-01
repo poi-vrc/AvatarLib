@@ -1,5 +1,10 @@
 name: Document generation
-on: push
+
+on:
+  push:
+    paths:
+      - "**.cs"
+      
 jobs:
   doxygen:
     runs-on: ubuntu-latest

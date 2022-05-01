@@ -347,7 +347,8 @@ namespace Chocopoi.AvatarLib.Animations
                 if (referenceState != null)
                 {
                     CopyAnimatorStateFields(referenceState, newState);
-                } else
+                }
+                else
                 {
                     SetAnimatorStateFieldsToDefault(newState);
                 }
@@ -362,7 +363,8 @@ namespace Chocopoi.AvatarLib.Animations
                 if (referenceTransition != null)
                 {
                     CopyAnimatorTransitionFields(referenceTransition, newTransition);
-                } else
+                }
+                else
                 {
                     SetAnimatorTransitionFieldsToDefault(newTransition);
                 }
@@ -411,7 +413,8 @@ namespace Chocopoi.AvatarLib.Animations
             {
                 CopyAnimatorStateFields(referenceState, offState);
                 CopyAnimatorStateFields(referenceState, onState);
-            } else
+            }
+            else
             {
                 SetAnimatorStateFieldsToDefault(offState);
                 SetAnimatorStateFieldsToDefault(onState);
@@ -425,14 +428,15 @@ namespace Chocopoi.AvatarLib.Animations
 
             AnimatorStateTransition offStateTransition = newLayer.stateMachine.AddAnyStateTransition(offState);
             AnimatorStateTransition onStateTransition = newLayer.stateMachine.AddAnyStateTransition(onState);
-            
+
             // copy transition fields
 
             if (referenceTransition != null)
             {
                 CopyAnimatorTransitionFields(referenceTransition, offStateTransition);
                 CopyAnimatorTransitionFields(referenceTransition, onStateTransition);
-            } else
+            }
+            else
             {
                 SetAnimatorTransitionFieldsToDefault(offStateTransition);
                 SetAnimatorTransitionFieldsToDefault(onStateTransition);
@@ -444,7 +448,8 @@ namespace Chocopoi.AvatarLib.Animations
             {
                 offStateTransition.AddCondition(AnimatorConditionMode.If, 0, parameter);
                 onStateTransition.AddCondition(AnimatorConditionMode.IfNot, 0, parameter);
-            } else
+            }
+            else
             {
                 offStateTransition.AddCondition(AnimatorConditionMode.IfNot, 0, parameter);
                 onStateTransition.AddCondition(AnimatorConditionMode.If, 0, parameter);

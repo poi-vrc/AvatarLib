@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
 using VRC.SDK3.Avatars.ScriptableObjects;
 
 namespace Chocopoi.AvatarLib.Expressions
@@ -48,7 +48,7 @@ namespace Chocopoi.AvatarLib.Expressions
         {
             this.menu = menu;
         }
-        
+
         /// <summary>
         /// Change the current containing menu to the specified one
         /// </summary>
@@ -123,7 +123,7 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddToggle(string name, string parameter, float value)
         {
-            return AddToggle (name, new VRCExpressionsMenu.Control.Parameter() { name = parameter }, value);
+            return AddToggle(name, new VRCExpressionsMenu.Control.Parameter() { name = parameter }, value);
         }
 
         /// <summary>

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
 using VRC.SDK3.Avatars.ScriptableObjects;
 
 namespace Chocopoi.AvatarLib.Expressions
@@ -193,8 +193,8 @@ namespace Chocopoi.AvatarLib.Expressions
             }
 
             List<VRCExpressionParameters.Parameter> list = new List<VRCExpressionParameters.Parameter>(parameters.parameters);
-            
-            foreach(VRCExpressionParameters.Parameter p in newParameters)
+
+            foreach (VRCExpressionParameters.Parameter p in newParameters)
             {
                 list.Add(p);
             }
