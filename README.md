@@ -29,7 +29,7 @@ AvatarLib uses the Unity Package Manager (UPM) for version control. You can inst
 
 3. Find `AvatarLib` and press the `Update to x.x.x` button if available.
 
-### Why this library?
+## Why this library?
 
 It is created to simply allow me to re-use some codes in multiple tools. But it is a really good library with handy library functions:
 
