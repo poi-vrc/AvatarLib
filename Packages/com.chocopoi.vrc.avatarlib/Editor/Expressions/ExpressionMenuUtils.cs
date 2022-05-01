@@ -148,5 +148,58 @@ namespace Chocopoi.AvatarLib.Expressions
 
             parameters.parameters = list.ToArray();
         }
+
+        /// <summary>
+        /// Calculates the total parameters cost from the specified parameters
+        /// </summary>
+        /// <param name="parameters">Parameters to calculate</param>
+        /// <returns>The cost</returns>
+        public static int CalculateParametersCost(IEnumerable<VRCExpressionParameters.Parameter> parameters)
+        {
+            int cost = 0;
+
+            foreach (VRCExpressionParameters.Parameter p in parameters)
+            {
+                cost += VRCExpressionParameters.TypeCost(p.valueType);
+            }
+
+            return cost;
+        }
+
+        /// <summary>
+        /// Calculates the total parameters remain
+        /// </summary>
+        /// <param name="parameters">The existing parameters</param>
+        /// <param name="newParameters">The new parameters to be added</param>
+        /// <returns></returns>
+        public static int CalculateParametersRemain(VRCExpressionParameters parameters, IEnumerable<VRCExpressionParameters.Parameter> newParameters)
+        {
+            return VRCExpressionParameters.MAX_PARAMETER_COST - parameters.CalcTotalCost() - CalculateParametersCost(newParameters);
+        }
+
+        /// <summary>
+        /// Adds the new parameters, if the cost exceeds VRChat limits, it throws a ParameterOverflowException
+        /// </summary>
+        /// <param name="parameters">The existing parameters</param>
+        /// <param name="newParameters">The new parameters to be added</param>
+        public static void AddExpressionParameters(VRCExpressionParameters parameters, IEnumerable<VRCExpressionParameters.Parameter> newParameters)
+        {
+            int cost = CalculateParametersCost(newParameters);
+            int ogCost = parameters.CalcTotalCost();
+
+            if (VRCExpressionParameters.MAX_PARAMETER_COST - ogCost - cost < 0)
+            {
+                throw new ParameterOverflowException(ogCost, ogCost + cost, VRCExpressionParameters.MAX_PARAMETER_COST);
+            }
+
+            List<VRCExpressionParameters.Parameter> list = new List<VRCExpressionParameters.Parameter>(parameters.parameters);
+            
+            foreach(VRCExpressionParameters.Parameter p in newParameters)
+            {
+                list.Add(p);
+            }
+
+            parameters.parameters = list.ToArray();
+        }
     }
 }

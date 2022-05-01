@@ -17,6 +17,8 @@ public class NewBehaviourScript : MonoBehaviour
             .EndNewSubMenu()
             .CreateAsset("")
             .GetMenu();
+
+        ExpressionMenuUtils.CalculateParametersCost(new VRC.SDK3.Avatars.ScriptableObjects.VRCExpressionParameters.Parameter[] { });
     }
 
     // Update is called once per frame
