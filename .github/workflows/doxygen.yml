@@ -5,6 +5,7 @@ on:
     branches:
       - master
     paths:
+      - "Doxyfile"
       - "**.cs"
       
 jobs:
