@@ -1,0 +1,500 @@
+\hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils}{}\doxysection{Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils Class Reference}
+\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils}\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+
+
+An utility class for creating and modifying animations and animators  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a91c6cc5ce78b4ec10507dd6b49c17b95}{Get\+Relative\+Path}} (Transform transform, Transform until\+Transform=null, string prefix=\char`\"{}\char`\"{}, string suffix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Gets the relative path to the provided Transform from the very first parent (e.\+g. Avatar/\+Armature/\+Hips/\+Spine/\+Chest) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ae4d6417e736f41028fead59b4100bf1b}{Set\+Single\+Frame\+Game\+Object\+Enabled\+Curves}} (Animation\+Clip clip, Game\+Object\mbox{[}$\,$\mbox{]} game\+Objects, bool enabled, string prefix=\char`\"{}\char`\"{}, string suffix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Sets Game\+Object active (m\+\_\+\+Is\+Active) property enabled or not enabled in the first frame only (time = 0.\+0f) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a31c8e0a42a48b0b96e5ba4fc713fb796}{Set\+Game\+Object\+Enabled\+Curves}} (Animation\+Clip clip, Game\+Object\mbox{[}$\,$\mbox{]} game\+Objects, Animation\+Curve curve, string prefix=\char`\"{}\char`\"{}, string suffix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Sets Game\+Object active (m\+\_\+\+Is\+Active) property to the provided curve \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a3cf7e42ef635281b7c36ef72952712e8}{Set\+Single\+Frame\+Component\+Enabled\+Curves}} (Animation\+Clip clip, Component\mbox{[}$\,$\mbox{]} comps, bool enabled, string prefix=\char`\"{}\char`\"{}, string suffix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Sets component enabled (m\+\_\+\+Enabled) property enabled or not enabled in the first frame only (time = 0.\+0f) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a1f41267ecf9af3bb17ff86416d440be1}{Set\+Component\+Enabled\+Curves}} (Animation\+Clip clip, Component\mbox{[}$\,$\mbox{]} comps, Animation\+Curve curve, string prefix=\char`\"{}\char`\"{}, string suffix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Sets component enabled (m\+\_\+\+Enabled) property to the provided curve \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a2366fb61851f3c4c1b62993427c8d5d0}{Remove\+Animator\+Layers}} (Animator\+Controller controller, string regex)
+\begin{DoxyCompactList}\small\item\em Removes animator layers with name matching with regex \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_aaa3a366b7193b14837d6395cb3af3a2c}{Remove\+Animator\+Layers}} (Animator\+Controller controller, Regex regex)
+\begin{DoxyCompactList}\small\item\em Removes animator layers with name matching with regex \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4016bad61f9a8be15a28320ff7798aa}{Add\+Animator\+Parameter}} (Animator\+Controller controller, string name, bool default\+Value)
+\begin{DoxyCompactList}\small\item\em A handy way to add an animator parameter with boolean type \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a20a9549438655cfc1a29786dcaaf4be2}{Add\+Animator\+Parameter}} (Animator\+Controller controller, string name, int default\+Value)
+\begin{DoxyCompactList}\small\item\em A handy way to add an animator parameter with int type \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a64fce971f435ed46aacfd307a78d66eb}{Add\+Animator\+Parameter}} (Animator\+Controller controller, string name, float default\+Value)
+\begin{DoxyCompactList}\small\item\em A handy way to add an animator parameter with float type \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad650503a5d1ea9be8374aeb372b19ed2}{Remove\+Animator\+Parameters}} (Animator\+Controller controller, string regex)
+\begin{DoxyCompactList}\small\item\em Removes animator parameters with name matching with regex \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ac7c102a879e84572ccf5977f579118a5}{Remove\+Animator\+Parameters}} (Animator\+Controller controller, Regex regex)
+\begin{DoxyCompactList}\small\item\em Removes animator parameters with name matching with regex \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a480f194da28c9be1067cf8076869fc11}{Copy\+Animator\+State\+Fields}} (Animator\+State old\+State, Animator\+State new\+State)
+\begin{DoxyCompactList}\small\item\em Copies all fields (except for Animation\+Clip and write default values) from the \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a35f3e523c900a12b8c753faff03437be}{Copy\+Animator\+Transition\+Fields}} (Animator\+State\+Transition old\+Transition, Animator\+State\+Transition new\+Transition)
+\begin{DoxyCompactList}\small\item\em Copies all fields from the \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a5f40889423377d7ab7aa2eca21bf1825}{Set\+Animator\+State\+Fields\+To\+Default}} (Animator\+State new\+State)
+\begin{DoxyCompactList}\small\item\em Sets all fields of \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a87aaf897e94039e51028c59faca79181}{Set\+Animator\+Transition\+Fields\+To\+Default}} (Animator\+State\+Transition new\+Transition)
+\begin{DoxyCompactList}\small\item\em Sets all fields of \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a81241b4e2afa76bd5ff9b7bb283c429b}{Is\+Animator\+Parameter\+With\+Type\+Exist}} (Animator\+Controller controller, string parameter, System.\+Type type)
+\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a68ed0a4877cbcf191f95ec93544e2d15}{Generate\+Any\+State\+Layer}} (Animator\+Controller controller, string layer\+Name, string parameter, Dictionary$<$ int, Motion $>$ pairs, bool write\+Defaults, Animator\+State reference\+State=null, Animator\+State\+Transition reference\+Transition=null)
+\begin{DoxyCompactList}\small\item\em Generates an animator layer in the \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4cb6c3d265bf0f2d9e176c5a884bf84}{Generate\+Single\+Toggle\+Layer}} (Animator\+Controller controller, string layer\+Name, string parameter, Motion off\+Motion, Motion on\+Motion, bool write\+Defaults, bool inverted=false, Animator\+State reference\+State=null, Animator\+State\+Transition reference\+Transition=null)
+\begin{DoxyCompactList}\small\item\em Generates a single toggle layer, controlled by a single boolean parameter \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a730481cd4a4737d50eb3921a44441ced}{Generate\+Single\+Motion\+Time\+Layer}} (Animator\+Controller controller, string layer\+Name, string motion\+Time\+Parameter, Motion motion, bool write\+Defaults, Animator\+State reference\+State=null)
+\begin{DoxyCompactList}\small\item\em Generates single motion time layer, that the layer only contains a single Motion controlled by a motion time parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An utility class for creating and modifying animations and animators 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4016bad61f9a8be15a28320ff7798aa}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4016bad61f9a8be15a28320ff7798aa}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!AddAnimatorParameter@{AddAnimatorParameter}}
+\index{AddAnimatorParameter@{AddAnimatorParameter}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{AddAnimatorParameter()}{AddAnimatorParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Add\+Animator\+Parameter (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{name,  }\item[{bool}]{default\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A handy way to add an animator parameter with boolean type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em name} & the parameter name\\
+\hline
+{\em default\+Value} & The default value to be set\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a64fce971f435ed46aacfd307a78d66eb}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a64fce971f435ed46aacfd307a78d66eb}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!AddAnimatorParameter@{AddAnimatorParameter}}
+\index{AddAnimatorParameter@{AddAnimatorParameter}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{AddAnimatorParameter()}{AddAnimatorParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Add\+Animator\+Parameter (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{name,  }\item[{float}]{default\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A handy way to add an animator parameter with float type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em name} & the parameter name\\
+\hline
+{\em default\+Value} & The default value to be set\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a20a9549438655cfc1a29786dcaaf4be2}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a20a9549438655cfc1a29786dcaaf4be2}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!AddAnimatorParameter@{AddAnimatorParameter}}
+\index{AddAnimatorParameter@{AddAnimatorParameter}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{AddAnimatorParameter()}{AddAnimatorParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Add\+Animator\+Parameter (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{name,  }\item[{int}]{default\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A handy way to add an animator parameter with int type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em name} & the parameter name\\
+\hline
+{\em default\+Value} & The default value to be set\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a480f194da28c9be1067cf8076869fc11}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a480f194da28c9be1067cf8076869fc11}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!CopyAnimatorStateFields@{CopyAnimatorStateFields}}
+\index{CopyAnimatorStateFields@{CopyAnimatorStateFields}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{CopyAnimatorStateFields()}{CopyAnimatorStateFields()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Copy\+Animator\+State\+Fields (\begin{DoxyParamCaption}\item[{Animator\+State}]{old\+State,  }\item[{Animator\+State}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Copies all fields (except for Animation\+Clip and write default values) from the 
+
+{\ttfamily old\+State} to {\ttfamily new\+State} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+State} & Old state\\
+\hline
+{\em new\+State} & New state\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a35f3e523c900a12b8c753faff03437be}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a35f3e523c900a12b8c753faff03437be}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!CopyAnimatorTransitionFields@{CopyAnimatorTransitionFields}}
+\index{CopyAnimatorTransitionFields@{CopyAnimatorTransitionFields}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{CopyAnimatorTransitionFields()}{CopyAnimatorTransitionFields()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Copy\+Animator\+Transition\+Fields (\begin{DoxyParamCaption}\item[{Animator\+State\+Transition}]{old\+Transition,  }\item[{Animator\+State\+Transition}]{new\+Transition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Copies all fields from the 
+
+{\ttfamily old\+Transition} to {\ttfamily new\+Transition} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Transition} & Old transition\\
+\hline
+{\em new\+Transition} & New transition\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a68ed0a4877cbcf191f95ec93544e2d15}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a68ed0a4877cbcf191f95ec93544e2d15}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!GenerateAnyStateLayer@{GenerateAnyStateLayer}}
+\index{GenerateAnyStateLayer@{GenerateAnyStateLayer}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{GenerateAnyStateLayer()}{GenerateAnyStateLayer()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Generate\+Any\+State\+Layer (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{layer\+Name,  }\item[{string}]{parameter,  }\item[{Dictionary$<$ int, Motion $>$}]{pairs,  }\item[{bool}]{write\+Defaults,  }\item[{Animator\+State}]{reference\+State = {\ttfamily null},  }\item[{Animator\+State\+Transition}]{reference\+Transition = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates an animator layer in the 
+
+{\ttfamily Any\+State--\{condition\}-\/-\/\texorpdfstring{$>$}{>}State} structure 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em layer\+Name} & The new layer name\\
+\hline
+{\em parameter} & The parameter that controls the Any\+State conditions\\
+\hline
+{\em pairs} & Pairs of parameter values and Motion, the matching parameter value will make the layer change to the respective Motion. The value 0 will be the default state.\\
+\hline
+{\em write\+Defaults} & Write Default Values on every states in this animator layer\\
+\hline
+{\em reference\+State} & Reference state values, every fields will be copied from here except for the Animation\+Clip. Keep it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ to use default configuration.\\
+\hline
+{\em reference\+Transition} & Reference transition values, every fields will be copied, including conditions. Keep it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ to use default configuration.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a730481cd4a4737d50eb3921a44441ced}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a730481cd4a4737d50eb3921a44441ced}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!GenerateSingleMotionTimeLayer@{GenerateSingleMotionTimeLayer}}
+\index{GenerateSingleMotionTimeLayer@{GenerateSingleMotionTimeLayer}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{GenerateSingleMotionTimeLayer()}{GenerateSingleMotionTimeLayer()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Generate\+Single\+Motion\+Time\+Layer (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{layer\+Name,  }\item[{string}]{motion\+Time\+Parameter,  }\item[{Motion}]{motion,  }\item[{bool}]{write\+Defaults,  }\item[{Animator\+State}]{reference\+State = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates single motion time layer, that the layer only contains a single Motion controlled by a motion time parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em layer\+Name} & The new layer name\\
+\hline
+{\em motion\+Time\+Parameter} & Motion time parameter\\
+\hline
+{\em motion} & The single motion of the layer\\
+\hline
+{\em write\+Defaults} & Write Default Values in this animator layer\\
+\hline
+{\em reference\+State} & Reference state values, every fields will be copied from here except for the Animation\+Clip. Keep it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ to use default configuration.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4cb6c3d265bf0f2d9e176c5a884bf84}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad4cb6c3d265bf0f2d9e176c5a884bf84}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!GenerateSingleToggleLayer@{GenerateSingleToggleLayer}}
+\index{GenerateSingleToggleLayer@{GenerateSingleToggleLayer}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{GenerateSingleToggleLayer()}{GenerateSingleToggleLayer()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Generate\+Single\+Toggle\+Layer (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{layer\+Name,  }\item[{string}]{parameter,  }\item[{Motion}]{off\+Motion,  }\item[{Motion}]{on\+Motion,  }\item[{bool}]{write\+Defaults,  }\item[{bool}]{inverted = {\ttfamily false},  }\item[{Animator\+State}]{reference\+State = {\ttfamily null},  }\item[{Animator\+State\+Transition}]{reference\+Transition = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a single toggle layer, controlled by a single boolean parameter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em layer\+Name} & The new layer name\\
+\hline
+{\em parameter} & The boolean parameter that controls the Any\+State conditions\\
+\hline
+{\em off\+Motion} & The motion to be used if the parameter is true (false if inverted). You can set this to 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ if Write Defaults is on.\\
+\hline
+{\em on\+Motion} & The motion to be used if the parameter is false (true if inverted)\\
+\hline
+{\em write\+Defaults} & Write Default Values on every states in this animator layer\\
+\hline
+{\em inverted} & Invert the logic, false -\/\texorpdfstring{$>$}{>} on\+Motion, true -\/\texorpdfstring{$>$}{>} off\+Motion\\
+\hline
+{\em reference\+State} & Reference state values, every fields will be copied from here except for the Animation\+Clip. Keep it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ to use default configuration.\\
+\hline
+{\em reference\+Transition} & Reference transition values, every fields will be copied, including conditions. Keep it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ to use default configuration.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a91c6cc5ce78b4ec10507dd6b49c17b95}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a91c6cc5ce78b4ec10507dd6b49c17b95}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!GetRelativePath@{GetRelativePath}}
+\index{GetRelativePath@{GetRelativePath}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{GetRelativePath()}{GetRelativePath()}}
+{\footnotesize\ttfamily static string Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Get\+Relative\+Path (\begin{DoxyParamCaption}\item[{Transform}]{transform,  }\item[{Transform}]{until\+Transform = {\ttfamily null},  }\item[{string}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{suffix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the relative path to the provided Transform from the very first parent (e.\+g. Avatar/\+Armature/\+Hips/\+Spine/\+Chest) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & The Transform for finding the relative path\\
+\hline
+{\em until\+Transform} & Finds the relative path until this transform (exclusive). Keeping it 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keyword}{null}}
+
+\end{DoxyCode}
+ will find the very first parent\\
+\hline
+{\em prefix} & A prefix to be put before the path\\
+\hline
+{\em suffix} & A suffix to be put after the path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a81241b4e2afa76bd5ff9b7bb283c429b}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a81241b4e2afa76bd5ff9b7bb283c429b}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!IsAnimatorParameterWithTypeExist@{IsAnimatorParameterWithTypeExist}}
+\index{IsAnimatorParameterWithTypeExist@{IsAnimatorParameterWithTypeExist}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{IsAnimatorParameterWithTypeExist()}{IsAnimatorParameterWithTypeExist()}}
+{\footnotesize\ttfamily static bool Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Is\+Animator\+Parameter\+With\+Type\+Exist (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{parameter,  }\item[{System.\+Type}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_aaa3a366b7193b14837d6395cb3af3a2c}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_aaa3a366b7193b14837d6395cb3af3a2c}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!RemoveAnimatorLayers@{RemoveAnimatorLayers}}
+\index{RemoveAnimatorLayers@{RemoveAnimatorLayers}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveAnimatorLayers()}{RemoveAnimatorLayers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Remove\+Animator\+Layers (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{Regex}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes animator layers with name matching with regex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em regex} & The regex pattern\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a2366fb61851f3c4c1b62993427c8d5d0}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a2366fb61851f3c4c1b62993427c8d5d0}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!RemoveAnimatorLayers@{RemoveAnimatorLayers}}
+\index{RemoveAnimatorLayers@{RemoveAnimatorLayers}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveAnimatorLayers()}{RemoveAnimatorLayers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Remove\+Animator\+Layers (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes animator layers with name matching with regex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em regex} & The regex pattern\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ac7c102a879e84572ccf5977f579118a5}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ac7c102a879e84572ccf5977f579118a5}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!RemoveAnimatorParameters@{RemoveAnimatorParameters}}
+\index{RemoveAnimatorParameters@{RemoveAnimatorParameters}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveAnimatorParameters()}{RemoveAnimatorParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Remove\+Animator\+Parameters (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{Regex}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes animator parameters with name matching with regex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em regex} & The regex pattern\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad650503a5d1ea9be8374aeb372b19ed2}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ad650503a5d1ea9be8374aeb372b19ed2}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!RemoveAnimatorParameters@{RemoveAnimatorParameters}}
+\index{RemoveAnimatorParameters@{RemoveAnimatorParameters}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveAnimatorParameters()}{RemoveAnimatorParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Remove\+Animator\+Parameters (\begin{DoxyParamCaption}\item[{Animator\+Controller}]{controller,  }\item[{string}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes animator parameters with name matching with regex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Animator\+Controller to be modified\\
+\hline
+{\em regex} & The regex pattern\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a5f40889423377d7ab7aa2eca21bf1825}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a5f40889423377d7ab7aa2eca21bf1825}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetAnimatorStateFieldsToDefault@{SetAnimatorStateFieldsToDefault}}
+\index{SetAnimatorStateFieldsToDefault@{SetAnimatorStateFieldsToDefault}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetAnimatorStateFieldsToDefault()}{SetAnimatorStateFieldsToDefault()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Animator\+State\+Fields\+To\+Default (\begin{DoxyParamCaption}\item[{Animator\+State}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets all fields of 
+
+{\ttfamily new\+State} to default configuration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+State} & New state\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a87aaf897e94039e51028c59faca79181}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a87aaf897e94039e51028c59faca79181}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetAnimatorTransitionFieldsToDefault@{SetAnimatorTransitionFieldsToDefault}}
+\index{SetAnimatorTransitionFieldsToDefault@{SetAnimatorTransitionFieldsToDefault}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetAnimatorTransitionFieldsToDefault()}{SetAnimatorTransitionFieldsToDefault()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Animator\+Transition\+Fields\+To\+Default (\begin{DoxyParamCaption}\item[{Animator\+State\+Transition}]{new\+Transition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets all fields of 
+
+{\ttfamily new\+Transition} to default configuration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Transition} & new\+Transition\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a1f41267ecf9af3bb17ff86416d440be1}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a1f41267ecf9af3bb17ff86416d440be1}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetComponentEnabledCurves@{SetComponentEnabledCurves}}
+\index{SetComponentEnabledCurves@{SetComponentEnabledCurves}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetComponentEnabledCurves()}{SetComponentEnabledCurves()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Component\+Enabled\+Curves (\begin{DoxyParamCaption}\item[{Animation\+Clip}]{clip,  }\item[{Component\mbox{[}$\,$\mbox{]}}]{comps,  }\item[{Animation\+Curve}]{curve,  }\item[{string}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{suffix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets component enabled (m\+\_\+\+Enabled) property to the provided curve 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clip} & The Animation\+Clip to modify\\
+\hline
+{\em comps} & Components to animate\\
+\hline
+{\em curve} & The curve to set\\
+\hline
+{\em prefix} & Prefix to be added to the relative path\\
+\hline
+{\em suffix} & Suffix to be added to the relative path\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a31c8e0a42a48b0b96e5ba4fc713fb796}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a31c8e0a42a48b0b96e5ba4fc713fb796}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetGameObjectEnabledCurves@{SetGameObjectEnabledCurves}}
+\index{SetGameObjectEnabledCurves@{SetGameObjectEnabledCurves}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetGameObjectEnabledCurves()}{SetGameObjectEnabledCurves()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Game\+Object\+Enabled\+Curves (\begin{DoxyParamCaption}\item[{Animation\+Clip}]{clip,  }\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{game\+Objects,  }\item[{Animation\+Curve}]{curve,  }\item[{string}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{suffix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets Game\+Object active (m\+\_\+\+Is\+Active) property to the provided curve 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clip} & The Animation\+Clip to modify\\
+\hline
+{\em game\+Objects} & Game\+Objects to animate\\
+\hline
+{\em curve} & The curve to set\\
+\hline
+{\em prefix} & Prefix to be added to the relative path\\
+\hline
+{\em suffix} & Suffix to be added to the relative path\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a3cf7e42ef635281b7c36ef72952712e8}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_a3cf7e42ef635281b7c36ef72952712e8}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetSingleFrameComponentEnabledCurves@{SetSingleFrameComponentEnabledCurves}}
+\index{SetSingleFrameComponentEnabledCurves@{SetSingleFrameComponentEnabledCurves}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetSingleFrameComponentEnabledCurves()}{SetSingleFrameComponentEnabledCurves()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Single\+Frame\+Component\+Enabled\+Curves (\begin{DoxyParamCaption}\item[{Animation\+Clip}]{clip,  }\item[{Component\mbox{[}$\,$\mbox{]}}]{comps,  }\item[{bool}]{enabled,  }\item[{string}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{suffix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets component enabled (m\+\_\+\+Enabled) property enabled or not enabled in the first frame only (time = 0.\+0f) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clip} & The Animation\+Clip to modify\\
+\hline
+{\em comps} & Components to animate\\
+\hline
+{\em enabled} & Set to enabled or not\\
+\hline
+{\em prefix} & Prefix to be added to the relative path\\
+\hline
+{\em suffix} & Suffix to be added to the relative path\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ae4d6417e736f41028fead59b4100bf1b}\label{class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_animation_utils_ae4d6417e736f41028fead59b4100bf1b}} 
+\index{Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}!SetSingleFrameGameObjectEnabledCurves@{SetSingleFrameGameObjectEnabledCurves}}
+\index{SetSingleFrameGameObjectEnabledCurves@{SetSingleFrameGameObjectEnabledCurves}!Chocopoi.AvatarLib.Animations.AnimationUtils@{Chocopoi.AvatarLib.Animations.AnimationUtils}}
+\doxysubsubsection{\texorpdfstring{SetSingleFrameGameObjectEnabledCurves()}{SetSingleFrameGameObjectEnabledCurves()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Animations.\+Animation\+Utils.\+Set\+Single\+Frame\+Game\+Object\+Enabled\+Curves (\begin{DoxyParamCaption}\item[{Animation\+Clip}]{clip,  }\item[{Game\+Object\mbox{[}$\,$\mbox{]}}]{game\+Objects,  }\item[{bool}]{enabled,  }\item[{string}]{prefix = {\ttfamily \char`\"{}\char`\"{}},  }\item[{string}]{suffix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets Game\+Object active (m\+\_\+\+Is\+Active) property enabled or not enabled in the first frame only (time = 0.\+0f) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clip} & The Animation\+Clip to modify\\
+\hline
+{\em game\+Objects} & Game\+Objects to animate\\
+\hline
+{\em enabled} & Set to enabled or not\\
+\hline
+{\em prefix} & Prefix to be added to the relative path\\
+\hline
+{\em suffix} & Suffix to be added to the relative path\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Packages/com.\+chocopoi.\+vrc.\+avatarlib/\+Editor/\+Animations/\mbox{\hyperlink{_animation_utils_8cs}{Animation\+Utils.\+cs}}\end{DoxyCompactItemize}

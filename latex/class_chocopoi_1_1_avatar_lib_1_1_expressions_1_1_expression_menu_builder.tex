@@ -1,0 +1,750 @@
+\hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{}\doxysection{Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder Class Reference}
+\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+
+
+A handy builder to create/modify a VRCExpression\+Menu  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a508c0167df28f943aa9f627c39bf84c4}{Expression\+Menu\+Builder}} ()
+\begin{DoxyCompactList}\small\item\em Initializes with a new VRCExpression\+Menu \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a5a4edf6cb77b41cf15ba119f656fb736}{Expression\+Menu\+Builder}} (VRCExpressions\+Menu menu)
+\begin{DoxyCompactList}\small\item\em Initializes with an existing VRCExpression\+Menu \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a60b1aec46ffbbdf909f9ec456632b47a}{Set\+Menu}} (VRCExpressions\+Menu menu)
+\begin{DoxyCompactList}\small\item\em Change the current containing menu to the specified one \end{DoxyCompactList}\item 
+VRCExpressions\+Menu \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad0690dbfdb2fa8f5f95ca7c17b6d0fb3}{Get\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Returns the containing VRCExpression\+Menu \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3166ac8e9ff9238ae4aee1f564720305}{Create\+Asset}} (string path)
+\begin{DoxyCompactList}\small\item\em Create an asset of the containing menu at the specified path \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af17c6abe939f01518dad9602e217696c}{Add\+Button}} (string name, string parameter, float value)
+\begin{DoxyCompactList}\small\item\em Adds a button \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a43fa5163eab886377016b0260eeed7d0}{Add\+Button}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter parameter, float value)
+\begin{DoxyCompactList}\small\item\em Adds a button \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a33205e85b94987ad6ecb2dd82f17f745}{Add\+Toggle}} (string name, string parameter, float value)
+\begin{DoxyCompactList}\small\item\em Adds a toggle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af34a6a57dd26d0b28c30121256729b0a}{Add\+Toggle}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter parameter, float value)
+\begin{DoxyCompactList}\small\item\em Adds a toggle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a22a7371ee72c2cc3d2065559353869e4}{Begin\+New\+Sub\+Menu}} (string name, string parameter\+On\+Open, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Begins a new sub-\/menu, used together with \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a24d4cde9514157d28ed6f50634e7746b}{Begin\+New\+Sub\+Menu}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Begins a new sub-\/menu, used together with \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad227df549e5dbf03366a102e4843f3fe}{End\+New\+Sub\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Ends the new sub-\/menu creation and returns to the parent builder, used together with \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a44da7aa04a17d34ae3dd4b1a68baf1d5}{Add\+Sub\+Menu}} (string name, VRCExpressions\+Menu sub\+Menu, string parameter\+On\+Open, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a sub-\/menu \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af1c926e4cd62bc4eeee3cb41f26a7297}{Add\+Sub\+Menu}} (string name, VRCExpressions\+Menu sub\+Menu, VRCExpressions\+Menu.\+Control.\+Parameter parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a sub-\/menu \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad913bee0e9e40516bc37485f6f03969d}{Add\+Two\+Axis\+Puppet}} (string name, string horizontal\+Parameter, string vertical\+Parameter, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a two-\/axis puppet, with empty labels \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a99e75c4a6c80faac0eb374ed01f6455d}{Add\+Two\+Axis\+Puppet}} (string name, string horizontal\+Parameter, string vertical\+Parameter, string horizontal\+Label, string vertical\+Label, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a two-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3dfafb7d41ef25db047d753f89aa7e17}{Add\+Two\+Axis\+Puppet}} (string name, string horizontal\+Parameter, string vertical\+Parameter, VRCExpressions\+Menu.\+Control.\+Label horizontal\+Label, VRCExpressions\+Menu.\+Control.\+Label vertical\+Label, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a two-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a990c698e04f31ddae595f682e09f9165}{Add\+Two\+Axis\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter horizontal\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter vertical\+Parameter, VRCExpressions\+Menu.\+Control.\+Label horizontal\+Label, VRCExpressions\+Menu.\+Control.\+Label vertical\+Label, string parameter\+On\+Open, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a two-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad9717cf7b5d9daf9771f2db17d867f87}{Add\+Two\+Axis\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter horizontal\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter vertical\+Parameter, VRCExpressions\+Menu.\+Control.\+Label horizontal\+Label, VRCExpressions\+Menu.\+Control.\+Label vertical\+Label, VRCExpressions\+Menu.\+Control.\+Parameter parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a two-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ac701edf13e33ed42dbdb9233bc3b8d30}{Add\+Four\+Axis\+Puppet}} (string name, string up\+Parameter, string right\+Parameter, string down\+Parameter, string left\+Parameter, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a four-\/axis puppet, with empty labels \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a6248818c60edf53552d1b84be812a634}{Add\+Four\+Axis\+Puppet}} (string name, string up\+Parameter, string right\+Parameter, string down\+Parameter, string left\+Parameter, string up\+Label, string right\+Label, string down\+Label, string left\+Label, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a four-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a9173b91a337ec0053ceb33955e31983f}{Add\+Four\+Axis\+Puppet}} (string name, string up\+Parameter, string right\+Parameter, string down\+Parameter, string left\+Parameter, VRCExpressions\+Menu.\+Control.\+Label up\+Label, VRCExpressions\+Menu.\+Control.\+Label right\+Label, VRCExpressions\+Menu.\+Control.\+Label down\+Label, VRCExpressions\+Menu.\+Control.\+Label left\+Label, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a four-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a83b55302bdcc4915ef926ed196ef0d0d}{Add\+Four\+Axis\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter up\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter right\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter down\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter left\+Parameter, VRCExpressions\+Menu.\+Control.\+Label up\+Label, VRCExpressions\+Menu.\+Control.\+Label right\+Label, VRCExpressions\+Menu.\+Control.\+Label down\+Label, VRCExpressions\+Menu.\+Control.\+Label left\+Label, string parameter\+On\+Open, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a four-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a642fa93dedd7c411f625decbde404154}{Add\+Four\+Axis\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter up\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter right\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter down\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter left\+Parameter, VRCExpressions\+Menu.\+Control.\+Label up\+Label, VRCExpressions\+Menu.\+Control.\+Label right\+Label, VRCExpressions\+Menu.\+Control.\+Label down\+Label, VRCExpressions\+Menu.\+Control.\+Label left\+Label, VRCExpressions\+Menu.\+Control.\+Parameter parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a four-\/axis puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a0154c5f291455c87e10d8f23b1de384c}{Add\+Radial\+Puppet}} (string name, string rotation\+Parameter, string parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a radial puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a82a89436136f13bff28f2e5dc48771e5}{Add\+Radial\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter rotation\+Parameter, string parameter\+On\+Open, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a radial puppet \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a90bc6f985cc6f5c2d4e2c81ef387608b}{Add\+Radial\+Puppet}} (string name, VRCExpressions\+Menu.\+Control.\+Parameter rotation\+Parameter, VRCExpressions\+Menu.\+Control.\+Parameter parameter\+On\+Open=null, float value\+On\+Open=1)
+\begin{DoxyCompactList}\small\item\em Adds a radial puppet \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A handy builder to create/modify a VRCExpression\+Menu 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a508c0167df28f943aa9f627c39bf84c4}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a508c0167df28f943aa9f627c39bf84c4}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!ExpressionMenuBuilder@{ExpressionMenuBuilder}}
+\index{ExpressionMenuBuilder@{ExpressionMenuBuilder}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{ExpressionMenuBuilder()}{ExpressionMenuBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Expression\+Menu\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes with a new VRCExpression\+Menu 
+
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a5a4edf6cb77b41cf15ba119f656fb736}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a5a4edf6cb77b41cf15ba119f656fb736}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!ExpressionMenuBuilder@{ExpressionMenuBuilder}}
+\index{ExpressionMenuBuilder@{ExpressionMenuBuilder}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{ExpressionMenuBuilder()}{ExpressionMenuBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Expression\+Menu\+Builder (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{menu }\end{DoxyParamCaption})}
+
+
+
+Initializes with an existing VRCExpression\+Menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af17c6abe939f01518dad9602e217696c}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af17c6abe939f01518dad9602e217696c}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddButton@{AddButton}}
+\index{AddButton@{AddButton}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddButton()}{AddButton()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Button (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{parameter,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Adds a button 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter} & The synced parameter to be controlled\\
+\hline
+{\em value} & The value to be set to the synced parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a43fa5163eab886377016b0260eeed7d0}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a43fa5163eab886377016b0260eeed7d0}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddButton@{AddButton}}
+\index{AddButton@{AddButton}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddButton()}{AddButton()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Button (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Adds a button 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter} & The synced parameter to be controlled\\
+\hline
+{\em value} & The value to be set to the synced parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ac701edf13e33ed42dbdb9233bc3b8d30}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ac701edf13e33ed42dbdb9233bc3b8d30}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddFourAxisPuppet@{AddFourAxisPuppet}}
+\index{AddFourAxisPuppet@{AddFourAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddFourAxisPuppet()}{AddFourAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Four\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{up\+Parameter,  }\item[{string}]{right\+Parameter,  }\item[{string}]{down\+Parameter,  }\item[{string}]{left\+Parameter,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a four-\/axis puppet, with empty labels 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em up\+Parameter} & The synced parameter for the up axis\\
+\hline
+{\em right\+Parameter} & The synced parameter for the right axis\\
+\hline
+{\em down\+Parameter} & The synced parameter for the down axis\\
+\hline
+{\em left\+Parameter} & The synced parameter for the left axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a6248818c60edf53552d1b84be812a634}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a6248818c60edf53552d1b84be812a634}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddFourAxisPuppet@{AddFourAxisPuppet}}
+\index{AddFourAxisPuppet@{AddFourAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddFourAxisPuppet()}{AddFourAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Four\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{up\+Parameter,  }\item[{string}]{right\+Parameter,  }\item[{string}]{down\+Parameter,  }\item[{string}]{left\+Parameter,  }\item[{string}]{up\+Label,  }\item[{string}]{right\+Label,  }\item[{string}]{down\+Label,  }\item[{string}]{left\+Label,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a four-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em up\+Parameter} & The synced parameter for the up axis\\
+\hline
+{\em right\+Parameter} & The synced parameter for the right axis\\
+\hline
+{\em down\+Parameter} & The synced parameter for the down axis\\
+\hline
+{\em left\+Parameter} & The synced parameter for the left axis\\
+\hline
+{\em up\+Label} & The label for the up axis\\
+\hline
+{\em right\+Label} & The label for the right axis\\
+\hline
+{\em down\+Label} & The label for the down axis\\
+\hline
+{\em left\+Label} & The label for the left axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a9173b91a337ec0053ceb33955e31983f}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a9173b91a337ec0053ceb33955e31983f}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddFourAxisPuppet@{AddFourAxisPuppet}}
+\index{AddFourAxisPuppet@{AddFourAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddFourAxisPuppet()}{AddFourAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Four\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{up\+Parameter,  }\item[{string}]{right\+Parameter,  }\item[{string}]{down\+Parameter,  }\item[{string}]{left\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{up\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{right\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{down\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{left\+Label,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a four-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em up\+Parameter} & The synced parameter for the up axis\\
+\hline
+{\em right\+Parameter} & The synced parameter for the right axis\\
+\hline
+{\em down\+Parameter} & The synced parameter for the down axis\\
+\hline
+{\em left\+Parameter} & The synced parameter for the left axis\\
+\hline
+{\em up\+Label} & The label for the up axis\\
+\hline
+{\em right\+Label} & The label for the right axis\\
+\hline
+{\em down\+Label} & The label for the down axis\\
+\hline
+{\em left\+Label} & The label for the left axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a83b55302bdcc4915ef926ed196ef0d0d}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a83b55302bdcc4915ef926ed196ef0d0d}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddFourAxisPuppet@{AddFourAxisPuppet}}
+\index{AddFourAxisPuppet@{AddFourAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddFourAxisPuppet()}{AddFourAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Four\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{up\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{right\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{down\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{left\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{up\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{right\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{down\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{left\+Label,  }\item[{string}]{parameter\+On\+Open,  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a four-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em up\+Parameter} & The synced parameter for the up axis\\
+\hline
+{\em right\+Parameter} & The synced parameter for the right axis\\
+\hline
+{\em down\+Parameter} & The synced parameter for the down axis\\
+\hline
+{\em left\+Parameter} & The synced parameter for the left axis\\
+\hline
+{\em up\+Label} & The label for the up axis\\
+\hline
+{\em right\+Label} & The label for the right axis\\
+\hline
+{\em down\+Label} & The label for the down axis\\
+\hline
+{\em left\+Label} & The label for the left axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a642fa93dedd7c411f625decbde404154}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a642fa93dedd7c411f625decbde404154}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddFourAxisPuppet@{AddFourAxisPuppet}}
+\index{AddFourAxisPuppet@{AddFourAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddFourAxisPuppet()}{AddFourAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Four\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{up\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{right\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{down\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{left\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{up\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{right\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{down\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{left\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a four-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em up\+Parameter} & The synced parameter for the up axis\\
+\hline
+{\em right\+Parameter} & The synced parameter for the right axis\\
+\hline
+{\em down\+Parameter} & The synced parameter for the down axis\\
+\hline
+{\em left\+Parameter} & The synced parameter for the left axis\\
+\hline
+{\em up\+Label} & The label for the up axis\\
+\hline
+{\em right\+Label} & The label for the right axis\\
+\hline
+{\em down\+Label} & The label for the down axis\\
+\hline
+{\em left\+Label} & The label for the left axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a0154c5f291455c87e10d8f23b1de384c}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a0154c5f291455c87e10d8f23b1de384c}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddRadialPuppet@{AddRadialPuppet}}
+\index{AddRadialPuppet@{AddRadialPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddRadialPuppet()}{AddRadialPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Radial\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{rotation\+Parameter,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a radial puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em rotation\+Parameter} & The synced parameter for the rotation\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a82a89436136f13bff28f2e5dc48771e5}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a82a89436136f13bff28f2e5dc48771e5}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddRadialPuppet@{AddRadialPuppet}}
+\index{AddRadialPuppet@{AddRadialPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddRadialPuppet()}{AddRadialPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Radial\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{rotation\+Parameter,  }\item[{string}]{parameter\+On\+Open,  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a radial puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em rotation\+Parameter} & The synced parameter for the rotation\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a90bc6f985cc6f5c2d4e2c81ef387608b}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a90bc6f985cc6f5c2d4e2c81ef387608b}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddRadialPuppet@{AddRadialPuppet}}
+\index{AddRadialPuppet@{AddRadialPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddRadialPuppet()}{AddRadialPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Radial\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{rotation\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a radial puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em rotation\+Parameter} & The synced parameter for the rotation\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a44da7aa04a17d34ae3dd4b1a68baf1d5}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a44da7aa04a17d34ae3dd4b1a68baf1d5}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddSubMenu@{AddSubMenu}}
+\index{AddSubMenu@{AddSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddSubMenu()}{AddSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Sub\+Menu (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu}]{sub\+Menu,  }\item[{string}]{parameter\+On\+Open,  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a sub-\/menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em sub\+Menu} & The sub-\/menu to be added\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af1c926e4cd62bc4eeee3cb41f26a7297}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af1c926e4cd62bc4eeee3cb41f26a7297}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddSubMenu@{AddSubMenu}}
+\index{AddSubMenu@{AddSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddSubMenu()}{AddSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Sub\+Menu (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu}]{sub\+Menu,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a sub-\/menu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em sub\+Menu} & The sub-\/menu to be added\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a33205e85b94987ad6ecb2dd82f17f745}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a33205e85b94987ad6ecb2dd82f17f745}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddToggle@{AddToggle}}
+\index{AddToggle@{AddToggle}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddToggle()}{AddToggle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Toggle (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{parameter,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Adds a toggle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter} & The synced parameter to be controlled\\
+\hline
+{\em value} & The value to be set to the synced parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af34a6a57dd26d0b28c30121256729b0a}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_af34a6a57dd26d0b28c30121256729b0a}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddToggle@{AddToggle}}
+\index{AddToggle@{AddToggle}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddToggle()}{AddToggle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Toggle (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Adds a toggle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter} & The synced parameter to be controlled\\
+\hline
+{\em value} & The value to be set to the synced parameter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a99e75c4a6c80faac0eb374ed01f6455d}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a99e75c4a6c80faac0eb374ed01f6455d}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddTwoAxisPuppet@{AddTwoAxisPuppet}}
+\index{AddTwoAxisPuppet@{AddTwoAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddTwoAxisPuppet()}{AddTwoAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Two\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{horizontal\+Parameter,  }\item[{string}]{vertical\+Parameter,  }\item[{string}]{horizontal\+Label,  }\item[{string}]{vertical\+Label,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a two-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em horizontal\+Parameter} & The synced parameter for the horizontal axis\\
+\hline
+{\em vertical\+Parameter} & The synced parameter for the vertical axis\\
+\hline
+{\em horizontal\+Label} & The label for the horizontal axis\\
+\hline
+{\em vertical\+Label} & The label for the vertical axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad913bee0e9e40516bc37485f6f03969d}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad913bee0e9e40516bc37485f6f03969d}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddTwoAxisPuppet@{AddTwoAxisPuppet}}
+\index{AddTwoAxisPuppet@{AddTwoAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddTwoAxisPuppet()}{AddTwoAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Two\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{horizontal\+Parameter,  }\item[{string}]{vertical\+Parameter,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a two-\/axis puppet, with empty labels 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em horizontal\+Parameter} & The synced parameter for the horizontal axis\\
+\hline
+{\em vertical\+Parameter} & The synced parameter for the vertical axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3dfafb7d41ef25db047d753f89aa7e17}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3dfafb7d41ef25db047d753f89aa7e17}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddTwoAxisPuppet@{AddTwoAxisPuppet}}
+\index{AddTwoAxisPuppet@{AddTwoAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddTwoAxisPuppet()}{AddTwoAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Two\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{horizontal\+Parameter,  }\item[{string}]{vertical\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{horizontal\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{vertical\+Label,  }\item[{string}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a two-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em horizontal\+Parameter} & The synced parameter for the horizontal axis\\
+\hline
+{\em vertical\+Parameter} & The synced parameter for the vertical axis\\
+\hline
+{\em horizontal\+Label} & The label for the horizontal axis\\
+\hline
+{\em vertical\+Label} & The label for the vertical axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a990c698e04f31ddae595f682e09f9165}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a990c698e04f31ddae595f682e09f9165}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddTwoAxisPuppet@{AddTwoAxisPuppet}}
+\index{AddTwoAxisPuppet@{AddTwoAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddTwoAxisPuppet()}{AddTwoAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Two\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{horizontal\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{vertical\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{horizontal\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{vertical\+Label,  }\item[{string}]{parameter\+On\+Open,  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a two-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em horizontal\+Parameter} & The synced parameter for the horizontal axis\\
+\hline
+{\em vertical\+Parameter} & The synced parameter for the vertical axis\\
+\hline
+{\em horizontal\+Label} & The label for the horizontal axis\\
+\hline
+{\em vertical\+Label} & The label for the vertical axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad9717cf7b5d9daf9771f2db17d867f87}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad9717cf7b5d9daf9771f2db17d867f87}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!AddTwoAxisPuppet@{AddTwoAxisPuppet}}
+\index{AddTwoAxisPuppet@{AddTwoAxisPuppet}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{AddTwoAxisPuppet()}{AddTwoAxisPuppet()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Add\+Two\+Axis\+Puppet (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{horizontal\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{vertical\+Parameter,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{horizontal\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Label}]{vertical\+Label,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Adds a two-\/axis puppet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em horizontal\+Parameter} & The synced parameter for the horizontal axis\\
+\hline
+{\em vertical\+Parameter} & The synced parameter for the vertical axis\\
+\hline
+{\em horizontal\+Label} & The label for the horizontal axis\\
+\hline
+{\em vertical\+Label} & The label for the vertical axis\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a22a7371ee72c2cc3d2065559353869e4}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a22a7371ee72c2cc3d2065559353869e4}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!BeginNewSubMenu@{BeginNewSubMenu}}
+\index{BeginNewSubMenu@{BeginNewSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{BeginNewSubMenu()}{BeginNewSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Begin\+New\+Sub\+Menu (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{parameter\+On\+Open,  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Begins a new sub-\/menu, used together with 
+
+{\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad227df549e5dbf03366a102e4843f3fe}{End\+New\+Sub\+Menu()}}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} of the newly created sub-\/menu
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a24d4cde9514157d28ed6f50634e7746b}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a24d4cde9514157d28ed6f50634e7746b}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!BeginNewSubMenu@{BeginNewSubMenu}}
+\index{BeginNewSubMenu@{BeginNewSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{BeginNewSubMenu()}{BeginNewSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Begin\+New\+Sub\+Menu (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{VRCExpressions\+Menu.\+Control.\+Parameter}]{parameter\+On\+Open = {\ttfamily null},  }\item[{float}]{value\+On\+Open = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Begins a new sub-\/menu, used together with 
+
+{\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad227df549e5dbf03366a102e4843f3fe}{End\+New\+Sub\+Menu()}}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Display name\\
+\hline
+{\em parameter\+On\+Open} & The synced parameter to be controlled when it is opened\\
+\hline
+{\em value\+On\+Open} & The value to be set to the synced parameter when it is opened\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} of the newly created sub-\/menu
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3166ac8e9ff9238ae4aee1f564720305}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a3166ac8e9ff9238ae4aee1f564720305}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!CreateAsset@{CreateAsset}}
+\index{CreateAsset@{CreateAsset}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{CreateAsset()}{CreateAsset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Create\+Asset (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+
+
+
+Create an asset of the containing menu at the specified path 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Asset path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for further operations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad227df549e5dbf03366a102e4843f3fe}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad227df549e5dbf03366a102e4843f3fe}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!EndNewSubMenu@{EndNewSubMenu}}
+\index{EndNewSubMenu@{EndNewSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{EndNewSubMenu()}{EndNewSubMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+End\+New\+Sub\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ends the new sub-\/menu creation and returns to the parent builder, used together with 
+
+{\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a22a7371ee72c2cc3d2065559353869e4}{Begin\+New\+Sub\+Menu()}}}
+
+It throws an exception if you did not use it with any {\ttfamily \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a22a7371ee72c2cc3d2065559353869e4}{Begin\+New\+Sub\+Menu()}}} calls. 
+
+\begin{DoxyReturn}{Returns}
+The parent \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}}
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad0690dbfdb2fa8f5f95ca7c17b6d0fb3}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_ad0690dbfdb2fa8f5f95ca7c17b6d0fb3}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!GetMenu@{GetMenu}}
+\index{GetMenu@{GetMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{GetMenu()}{GetMenu()}}
+{\footnotesize\ttfamily VRCExpressions\+Menu Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Get\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the containing VRCExpression\+Menu 
+
+\begin{DoxyReturn}{Returns}
+The containing VRCExpression\+Menu
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a60b1aec46ffbbdf909f9ec456632b47a}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder_a60b1aec46ffbbdf909f9ec456632b47a}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}!SetMenu@{SetMenu}}
+\index{SetMenu@{SetMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder@{Chocopoi.AvatarLib.Expressions.ExpressionMenuBuilder}}
+\doxysubsubsection{\texorpdfstring{SetMenu()}{SetMenu()}}
+{\footnotesize\ttfamily void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Builder.\+Set\+Menu (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{menu }\end{DoxyParamCaption})}
+
+
+
+Change the current containing menu to the specified one 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & The new menu\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Packages/com.\+chocopoi.\+vrc.\+avatarlib/\+Editor/\+Expressions/\mbox{\hyperlink{_expression_menu_builder_8cs}{Expression\+Menu\+Builder.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['parameternotexistexception_0',['ParameterNotExistException',['../class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_parameter_not_exist_exception.html#abce4866ac9a705ca6f11269c986c7c4c',1,'Chocopoi.AvatarLib.Animations.ParameterNotExistException.ParameterNotExistException()'],['../class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_parameter_not_exist_exception.html#ac7888595420073b3372813b91c11bcc8',1,'Chocopoi.AvatarLib.Animations.ParameterNotExistException.ParameterNotExistException(string parameter, Type type)']]],
+  ['parameteroverflowexception_1',['ParameterOverflowException',['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_parameter_overflow_exception.html#ada960582a871709b85217e221c0196e8',1,'Chocopoi.AvatarLib.Expressions.ParameterOverflowException.ParameterOverflowException()'],['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_parameter_overflow_exception.html#aded3876976f603283a87c8b3c5ba3ddf',1,'Chocopoi.AvatarLib.Expressions.ParameterOverflowException.ParameterOverflowException(int original, int newAmount, int maxCapacity)']]]
+];

@@ -1,0 +1,234 @@
+\hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils}{}\doxysection{Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils Class Reference}
+\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils}\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+
+
+An utility class to make modification to an VRCExpression\+Menu  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a0be6f9944b229fe1d52047568d6900d4}{Create\+Sub\+Menu}} (VRCExpressions\+Menu root\+Menu, string control\+Name)
+\begin{DoxyCompactList}\small\item\em Creates a sub-\/menu in the specified root menu using a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a5afd26e7e9aff9c33c27086bd9bb4c95}{Create\+Sub\+Menu}} (VRCExpressions\+Menu root\+Menu, string control\+Name, List$<$ VRCExpressions\+Menu.\+Control $>$ controls)
+\begin{DoxyCompactList}\small\item\em Creates a sub-\/menu in the specified root menu using a list of VRCExpression\+Menu.\+Control \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a71c1fca5db3150a448180896323a4cb2}{Add\+Sub\+Menu}} (VRCExpressions\+Menu root\+Menu, string control\+Name, VRCExpressions\+Menu sub\+Menu)
+\begin{DoxyCompactList}\small\item\em Adds a sub-\/menu to the specified root menu. Throws a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_menu_overflow_exception}{Menu\+Overflow\+Exception}} if the specified menu is already full (8 controls). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_aa4e7cd3cf7f14ce05ea26d97361f4263}{Remove\+Expression\+Menu\+Controls}} (VRCExpressions\+Menu menu, string regex)
+\begin{DoxyCompactList}\small\item\em Remove controls that matches with the Regex pattern from the specified menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a224e3d4d6403c552d934036cfb22aef9}{Remove\+Expression\+Menu\+Controls}} (VRCExpressions\+Menu menu, Regex regex)
+\begin{DoxyCompactList}\small\item\em Remove controls that matches with the Regex pattern from the specified menu \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_abf473857dd1a21be539250a6f9b51eb4}{Remove\+Expression\+Parameters}} (VRCExpression\+Parameters parameters, string regex)
+\begin{DoxyCompactList}\small\item\em Remove expression parameters that matches with the Regex specified. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_acc5079b6144e818bed126cf58dea1eb2}{Remove\+Expression\+Parameters}} (VRCExpression\+Parameters parameters, Regex regex)
+\begin{DoxyCompactList}\small\item\em Remove expression parameters that matches with the Regex specified. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ac0bad484126acc99008f1573d54ebe27}{Calculate\+Parameters\+Cost}} (IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$ parameters)
+\begin{DoxyCompactList}\small\item\em Calculates the total parameters cost from the specified parameters \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ad6aa5b97a21fd1062f29f766a104dc2a}{Calculate\+Parameters\+Remain}} (VRCExpression\+Parameters parameters, IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$ new\+Parameters)
+\begin{DoxyCompactList}\small\item\em Calculates the total parameters remain \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a91d0e9d658b021f1ab212830a9ee8bd0}{Add\+Expression\+Parameters}} (VRCExpression\+Parameters parameters, IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$ new\+Parameters)
+\begin{DoxyCompactList}\small\item\em Adds the new parameters, if the cost exceeds VRChat limits, it throws a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_parameter_overflow_exception}{Parameter\+Overflow\+Exception}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An utility class to make modification to an VRCExpression\+Menu 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a91d0e9d658b021f1ab212830a9ee8bd0}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a91d0e9d658b021f1ab212830a9ee8bd0}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!AddExpressionParameters@{AddExpressionParameters}}
+\index{AddExpressionParameters@{AddExpressionParameters}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{AddExpressionParameters()}{AddExpressionParameters()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Add\+Expression\+Parameters (\begin{DoxyParamCaption}\item[{VRCExpression\+Parameters}]{parameters,  }\item[{IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$}]{new\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adds the new parameters, if the cost exceeds VRChat limits, it throws a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_parameter_overflow_exception}{Parameter\+Overflow\+Exception}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The existing parameters\\
+\hline
+{\em new\+Parameters} & The new parameters to be added\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a71c1fca5db3150a448180896323a4cb2}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a71c1fca5db3150a448180896323a4cb2}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!AddSubMenu@{AddSubMenu}}
+\index{AddSubMenu@{AddSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{AddSubMenu()}{AddSubMenu()}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Add\+Sub\+Menu (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{root\+Menu,  }\item[{string}]{control\+Name,  }\item[{VRCExpressions\+Menu}]{sub\+Menu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adds a sub-\/menu to the specified root menu. Throws a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_menu_overflow_exception}{Menu\+Overflow\+Exception}} if the specified menu is already full (8 controls). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Menu} & The root menu to add a sub-\/menu\\
+\hline
+{\em control\+Name} & The sub-\/menu display name\\
+\hline
+{\em sub\+Menu} & The sub-\/menu to be added\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ac0bad484126acc99008f1573d54ebe27}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ac0bad484126acc99008f1573d54ebe27}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!CalculateParametersCost@{CalculateParametersCost}}
+\index{CalculateParametersCost@{CalculateParametersCost}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{CalculateParametersCost()}{CalculateParametersCost()}}
+{\footnotesize\ttfamily static int Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Calculate\+Parameters\+Cost (\begin{DoxyParamCaption}\item[{IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the total parameters cost from the specified parameters 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & Parameters to calculate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cost
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ad6aa5b97a21fd1062f29f766a104dc2a}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_ad6aa5b97a21fd1062f29f766a104dc2a}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!CalculateParametersRemain@{CalculateParametersRemain}}
+\index{CalculateParametersRemain@{CalculateParametersRemain}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{CalculateParametersRemain()}{CalculateParametersRemain()}}
+{\footnotesize\ttfamily static int Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Calculate\+Parameters\+Remain (\begin{DoxyParamCaption}\item[{VRCExpression\+Parameters}]{parameters,  }\item[{IEnumerable$<$ VRCExpression\+Parameters.\+Parameter $>$}]{new\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the total parameters remain 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The existing parameters\\
+\hline
+{\em new\+Parameters} & The new parameters to be added\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a0be6f9944b229fe1d52047568d6900d4}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a0be6f9944b229fe1d52047568d6900d4}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!CreateSubMenu@{CreateSubMenu}}
+\index{CreateSubMenu@{CreateSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{CreateSubMenu()}{CreateSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Create\+Sub\+Menu (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{root\+Menu,  }\item[{string}]{control\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a sub-\/menu in the specified root menu using a \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Menu} & The root menu to add a sub-\/menu\\
+\hline
+{\em control\+Name} & The sub-\/menu display name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_builder}{Expression\+Menu\+Builder}} for adding controls to the new menu
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a5afd26e7e9aff9c33c27086bd9bb4c95}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a5afd26e7e9aff9c33c27086bd9bb4c95}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!CreateSubMenu@{CreateSubMenu}}
+\index{CreateSubMenu@{CreateSubMenu}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{CreateSubMenu()}{CreateSubMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Create\+Sub\+Menu (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{root\+Menu,  }\item[{string}]{control\+Name,  }\item[{List$<$ VRCExpressions\+Menu.\+Control $>$}]{controls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a sub-\/menu in the specified root menu using a list of VRCExpression\+Menu.\+Control 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root\+Menu} & The root menu to add a sub-\/menu\\
+\hline
+{\em control\+Name} & The sub-\/menu display name\\
+\hline
+{\em controls} & The controls to be added to the new sub-\/menu\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a224e3d4d6403c552d934036cfb22aef9}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_a224e3d4d6403c552d934036cfb22aef9}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!RemoveExpressionMenuControls@{RemoveExpressionMenuControls}}
+\index{RemoveExpressionMenuControls@{RemoveExpressionMenuControls}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveExpressionMenuControls()}{RemoveExpressionMenuControls()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Remove\+Expression\+Menu\+Controls (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{menu,  }\item[{Regex}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove controls that matches with the Regex pattern from the specified menu 
+
+Caution\+: This does not save to file. Execute {\ttfamily Asset\+Database.\+Save\+Assets()} to save. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & The menu to be modified\\
+\hline
+{\em regex} & A Regex instance\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_aa4e7cd3cf7f14ce05ea26d97361f4263}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_aa4e7cd3cf7f14ce05ea26d97361f4263}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!RemoveExpressionMenuControls@{RemoveExpressionMenuControls}}
+\index{RemoveExpressionMenuControls@{RemoveExpressionMenuControls}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveExpressionMenuControls()}{RemoveExpressionMenuControls()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Remove\+Expression\+Menu\+Controls (\begin{DoxyParamCaption}\item[{VRCExpressions\+Menu}]{menu,  }\item[{string}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove controls that matches with the Regex pattern from the specified menu. 
+
+If you use this multiple times with the same regex, it is better to use a Regex instance and pass it to this function. Because this will create a new regex instance everytime you call.
+
+Caution\+: This does not save to file. Execute {\ttfamily Asset\+Database.\+Save\+Assets()} to save. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & The menu to be modified\\
+\hline
+{\em regex} & A Regex string\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_acc5079b6144e818bed126cf58dea1eb2}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_acc5079b6144e818bed126cf58dea1eb2}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!RemoveExpressionParameters@{RemoveExpressionParameters}}
+\index{RemoveExpressionParameters@{RemoveExpressionParameters}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveExpressionParameters()}{RemoveExpressionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Remove\+Expression\+Parameters (\begin{DoxyParamCaption}\item[{VRCExpression\+Parameters}]{parameters,  }\item[{Regex}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove expression parameters that matches with the Regex specified. 
+
+Caution\+: This does not save to file. Execute {\ttfamily Asset\+Database.\+Save\+Assets()} to save. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The parameters to be removed from\\
+\hline
+{\em regex} & A Regex instance\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_abf473857dd1a21be539250a6f9b51eb4}\label{class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils_abf473857dd1a21be539250a6f9b51eb4}} 
+\index{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}!RemoveExpressionParameters@{RemoveExpressionParameters}}
+\index{RemoveExpressionParameters@{RemoveExpressionParameters}!Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils@{Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils}}
+\doxysubsubsection{\texorpdfstring{RemoveExpressionParameters()}{RemoveExpressionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Chocopoi.\+Avatar\+Lib.\+Expressions.\+Expression\+Menu\+Utils.\+Remove\+Expression\+Parameters (\begin{DoxyParamCaption}\item[{VRCExpression\+Parameters}]{parameters,  }\item[{string}]{regex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove expression parameters that matches with the Regex specified. 
+
+If you use this multiple times with the same regex, it is better to use a Regex instance and pass it to this function. Because this will create a new regex instance everytime you call.
+
+Caution\+: This does not save to file. Execute {\ttfamily Asset\+Database.\+Save\+Assets()} to save. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & The parameters to be removed from\\
+\hline
+{\em regex} & A Regex string\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Packages/com.\+chocopoi.\+vrc.\+avatarlib/\+Editor/\+Expressions/\mbox{\hyperlink{_expression_menu_utils_8cs}{Expression\+Menu\+Utils.\+cs}}\end{DoxyCompactItemize}
