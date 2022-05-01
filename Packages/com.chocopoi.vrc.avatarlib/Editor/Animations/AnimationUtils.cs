@@ -254,7 +254,8 @@ namespace Chocopoi.AvatarLib.Animations
             {
                 // Create state
 
-                AnimatorState newState = new AnimatorState();
+                pairs.TryGetValue(val, out Motion motion);
+                AnimatorState newState = newLayer.stateMachine.AddState(motion.name);
 
                 if (val == 0)
                 {
@@ -269,8 +270,8 @@ namespace Chocopoi.AvatarLib.Animations
                     SetAnimatorStateFieldsToDefault(newState);
                 }
 
-                pairs.TryGetValue(val, out Motion m);
-                newState.motion = m;
+                newState.writeDefaultValues = writeDefaults;
+                newState.motion = motion;
 
                 // create AnyState transition
 
@@ -288,6 +289,114 @@ namespace Chocopoi.AvatarLib.Animations
             }
 
             controller.AddLayer(newLayer);
+        }
+
+        /// <summary>
+        /// Generates a single toggle layer, controlled by a single boolean parameter
+        /// </summary>
+        /// <param name="controller">The AnimatorController to be modified</param>
+        /// <param name="layerName">The new layer name</param>
+        /// <param name="parameter">The boolean parameter that controls the AnyState conditions</param>
+        /// <param name="offMotion">The motion to be used if the parameter is true (false if inverted). You can set this to <code>null</code> if Write Defaults is on.</param>
+        /// <param name="onMotion">The motion to be used if the parameter is false (true if inverted)</param>
+        /// <param name="writeDefaults">Write Default Values on every states in this animator layer</param>
+        /// <param name="inverted">Invert the logic, false -> onMotion, true -> offMotion</param>
+        /// <param name="referenceState">Reference state values, every fields will be copied from here except for the AnimationClip. Keep it <code>null</code> to use default configuration.</param>
+        /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
+        public static void GenerateSingleToggleLayer(AnimatorController controller, string layerName, string parameter, Motion offMotion, Motion onMotion, bool writeDefaults, bool inverted = false, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
+        {
+            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                defaultWeight = 1,
+                stateMachine = new AnimatorStateMachine()
+            };
+
+            // create states
+
+            AnimatorState offState = newLayer.stateMachine.AddState(offMotion.name);
+            AnimatorState onState = newLayer.stateMachine.AddState(onMotion.name);
+            newLayer.stateMachine.defaultState = offState;
+
+            // copy state fields
+
+            if (referenceState != null)
+            {
+                CopyAnimatorStateFields(referenceState, offState);
+                CopyAnimatorStateFields(referenceState, onState);
+            } else
+            {
+                SetAnimatorStateFieldsToDefault(offState);
+                SetAnimatorStateFieldsToDefault(onState);
+            }
+
+            offState.writeDefaultValues = writeDefaults;
+            onState.writeDefaultValues = writeDefaults;
+
+            offState.motion = offMotion;
+            onState.motion = onMotion;
+
+            AnimatorStateTransition offStateTransition = newLayer.stateMachine.AddAnyStateTransition(offState);
+            AnimatorStateTransition onStateTransition = newLayer.stateMachine.AddAnyStateTransition(onState);
+            
+            // copy transition fields
+
+            if (referenceTransition != null)
+            {
+                CopyAnimatorTransitionFields(referenceTransition, offStateTransition);
+                CopyAnimatorTransitionFields(referenceTransition, onStateTransition);
+            } else
+            {
+                SetAnimatorTransitionFieldsToDefault(offStateTransition);
+                SetAnimatorTransitionFieldsToDefault(onStateTransition);
+            }
+
+            // add condition
+
+            if (inverted)
+            {
+                offStateTransition.AddCondition(AnimatorConditionMode.If, 0, parameter);
+                onStateTransition.AddCondition(AnimatorConditionMode.IfNot, 0, parameter);
+            } else
+            {
+                offStateTransition.AddCondition(AnimatorConditionMode.IfNot, 0, parameter);
+                onStateTransition.AddCondition(AnimatorConditionMode.If, 0, parameter);
+            }
+        }
+
+        /// <summary>
+        /// Generates single motion time layer, that the layer only contains a single Motion controlled by a motion time parameter.
+        /// </summary>
+        /// <param name="controller">The AnimatorController to be modified</param>
+        /// <param name="layerName">The new layer name</param>
+        /// <param name="motionTimeParameter">Motion time parameter</param>
+        /// <param name="motion">The single motion of the layer</param>
+        /// <param name="writeDefaults">Write Default Values in this animator layer</param>
+        /// <param name="referenceState">Reference state values, every fields will be copied from here except for the AnimationClip. Keep it <code>null</code> to use default configuration.</param>
+        public static void GenerateSingleMotionTimeLayer(AnimatorController controller, string layerName, string motionTimeParameter, Motion motion, bool writeDefaults, AnimatorState referenceState = null)
+        {
+            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                defaultWeight = 1,
+                stateMachine = new AnimatorStateMachine()
+            };
+
+            AnimatorState state = newLayer.stateMachine.AddState(motion.name);
+            newLayer.stateMachine.defaultState = state;
+
+            if (referenceState != null)
+            {
+                CopyAnimatorStateFields(referenceState, state);
+            }
+            else
+            {
+                SetAnimatorStateFieldsToDefault(state);
+            }
+
+            state.motion = motion;
+            state.timeParameter = motionTimeParameter;
+            state.timeParameterActive = true;
         }
     }
 }
