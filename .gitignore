@@ -82,4 +82,6 @@ crashlytics-build.properties
 /[Aa]ssets/DynamicBone/
 /[Aa]ssets/DynamicBone.meta
 
-
+# Ignore generated docs
+docs/
+docs

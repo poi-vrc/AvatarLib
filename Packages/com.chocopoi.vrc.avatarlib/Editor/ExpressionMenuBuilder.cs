@@ -5,7 +5,7 @@ using UnityEditor;
 using System.Text.RegularExpressions;
 using VRC.SDK3.Avatars.ScriptableObjects;
 
-namespace Chocopoi.VRCAvatarLib
+namespace Chocopoi.AvatarLib
 {
     public class ExpressionMenuBuilder
     {
