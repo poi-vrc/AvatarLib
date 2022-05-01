@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Chocopoi.AvatarLib.Expressions;
+using Chocopoi.AvatarLib.WorldConstraint;
 
 public class NewBehaviourScript : MonoBehaviour
 {

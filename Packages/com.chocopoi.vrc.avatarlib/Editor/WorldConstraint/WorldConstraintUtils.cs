@@ -21,7 +21,7 @@ namespace Chocopoi.AvatarLib.WorldConstraint
         /// <param name="root">Parent the world constraint to a Transform</param>
         /// <param name="resetTarget">The reset target to reset the world constraint to</param>
         /// <returns></returns>
-        private static WorldConstraint CreateWorldConstraint(GameObject item = null, Transform root = null, Transform resetTarget = null)
+        public static WorldConstraint CreateWorldConstraint(GameObject item = null, Transform root = null, Transform resetTarget = null)
         {
             // World space
 
@@ -83,7 +83,7 @@ namespace Chocopoi.AvatarLib.WorldConstraint
         /// </summary>
         /// <param name="worldConstraint">The world constraint object</param>
         /// <returns>An AnimationClip</returns>
-        private static AnimationClip GenerateLockAnimation(WorldConstraint worldConstraint)
+        public static AnimationClip GenerateLockAnimation(WorldConstraint worldConstraint)
         {
             AnimationClip clip = new AnimationClip();
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, new Component[] { worldConstraint.ResetTargetConstraint }, false);
@@ -95,7 +95,7 @@ namespace Chocopoi.AvatarLib.WorldConstraint
         /// </summary>
         /// <param name="worldConstraint">The world constraint object</param>
         /// <returns>An AnimationClip</returns>
-        private static AnimationClip GenerateUnlockAnimation(WorldConstraint worldConstraint)
+        public static AnimationClip GenerateUnlockAnimation(WorldConstraint worldConstraint)
         {
             AnimationClip clip = new AnimationClip();
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, new Component[] { worldConstraint.ResetTargetConstraint }, true);
@@ -107,7 +107,7 @@ namespace Chocopoi.AvatarLib.WorldConstraint
         /// </summary>
         /// <param name="worldConstraint">The world constraint object</param>
         /// <returns>An AnimationClip</returns>
-        private static AnimationClip GenerateShowAnimation(WorldConstraint worldConstraint)
+        public static AnimationClip GenerateShowAnimation(WorldConstraint worldConstraint)
         {
             AnimationClip clip = new AnimationClip();
             AnimationUtils.SetSingleFrameGameObjectEnabledCurves(clip, new GameObject[] { worldConstraint.Root }, true);
@@ -119,7 +119,7 @@ namespace Chocopoi.AvatarLib.WorldConstraint
         /// </summary>
         /// <param name="worldConstraint">The world constraint object</param>
         /// <returns>An AnimationClip</returns>
-        private static AnimationClip GenerateHideAnimation(WorldConstraint worldConstraint)
+        public static AnimationClip GenerateHideAnimation(WorldConstraint worldConstraint)
         {
             AnimationClip clip = new AnimationClip();
             AnimationUtils.SetSingleFrameGameObjectEnabledCurves(clip, new GameObject[] { worldConstraint.Root }, false);
