@@ -38,6 +38,70 @@ namespace Chocopoi.AvatarLib.Animations
         }
 
         /// <summary>
+        /// Sets GameObject active (m_IsActive) property enabled or not enabled in the first frame only (time = 0.0f)
+        /// </summary>
+        /// <param name="clip">The AnimationClip to modify</param>
+        /// <param name="gameObjects">GameObjects to animate</param>
+        /// <param name="enabled">Set to enabled or not</param>
+        /// <param name="prefix">Prefix to be added to the relative path</param>
+        /// <param name="suffix">Suffix to be added to the relative path</param>
+        public static void SetSingleFrameGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, bool enabled, string prefix = "", string suffix = "")
+        {
+            foreach (GameObject obj in gameObjects)
+            {
+                clip.SetCurve(GetRelativePath(obj.transform, null, prefix, suffix), typeof(GameObject), "m_IsActive", AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
+            }
+        }
+
+        /// <summary>
+        /// Sets GameObject active (m_IsActive) property to the provided curve
+        /// </summary>
+        /// <param name="clip">The AnimationClip to modify</param>
+        /// <param name="gameObjects">GameObjects to animate</param>
+        /// <param name="curve">The curve to set</param>
+        /// <param name="prefix">Prefix to be added to the relative path</param>
+        /// <param name="suffix">Suffix to be added to the relative path</param>
+        public static void SetGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, AnimationCurve curve, string prefix = "", string suffix = "")
+        {
+            foreach (GameObject obj in gameObjects)
+            {
+                clip.SetCurve(GetRelativePath(obj.transform, null, prefix, suffix), typeof(GameObject), "m_IsActive", curve);
+            }
+        }
+
+        /// <summary>
+        /// Sets component enabled (m_Enabled) property enabled or not enabled in the first frame only (time = 0.0f)
+        /// </summary>
+        /// <param name="clip">The AnimationClip to modify</param>
+        /// <param name="comps">Components to animate</param>
+        /// <param name="enabled">Set to enabled or not</param>
+        /// <param name="prefix">Prefix to be added to the relative path</param>
+        /// <param name="suffix">Suffix to be added to the relative path</param>
+        public static void SetSingleFrameComponentEnabledCurves(AnimationClip clip, Component[] comps, bool enabled, string prefix = "", string suffix = "")
+        {
+            foreach (Component comp in comps)
+            {
+                clip.SetCurve(GetRelativePath(comp.transform, null, prefix, suffix), typeof(GameObject), "m_Enabled", AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
+            }
+        }
+
+        /// <summary>
+        /// Sets component enabled (m_Enabled) property to the provided curve
+        /// </summary>
+        /// <param name="clip">The AnimationClip to modify</param>
+        /// <param name="comps">Components to animate</param>
+        /// <param name="curve">The curve to set</param>
+        /// <param name="prefix">Prefix to be added to the relative path</param>
+        /// <param name="suffix">Suffix to be added to the relative path</param>
+        public static void SetComponentEnabledCurves(AnimationClip clip, Component[] comps, AnimationCurve curve, string prefix = "", string suffix = "")
+        {
+            foreach (Component comp in comps)
+            {
+                clip.SetCurve(GetRelativePath(comp.transform, null, prefix, suffix), comp.GetType(), "m_Enabled", curve);
+            }
+        }
+
+        /// <summary>
         /// Removes animator layers with name matching with regex
         /// </summary>
         /// <param name="controller">The AnimatorController to be modified</param>
