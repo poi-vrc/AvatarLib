@@ -226,6 +226,19 @@ namespace Chocopoi.AvatarLib.Animations
             newTransition.conditions = new AnimatorCondition[] { };
         }
 
+        public static bool IsAnimatorParameterWithTypeExist(AnimatorController controller, string parameter, System.Type type)
+        {
+            foreach (AnimatorControllerParameter p in controller.parameters)
+            {
+                if (p.name == parameter && p.GetType() == type)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Generates an animator layer in the <code>AnyState--{condition}-->State</code> structure
         /// </summary>
@@ -238,6 +251,11 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateAnyStateLayer(AnimatorController controller, string layerName, string parameter, Dictionary<int, Motion> pairs, bool writeDefaults, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
+            if (!IsAnimatorParameterWithTypeExist(controller, parameter, typeof(int)))
+            {
+                throw new ParameterNotExistException(parameter, typeof(int));
+            }
+
             AnimatorControllerLayer newLayer = new AnimatorControllerLayer
             {
                 name = layerName,
@@ -305,6 +323,11 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleToggleLayer(AnimatorController controller, string layerName, string parameter, Motion offMotion, Motion onMotion, bool writeDefaults, bool inverted = false, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
+            if (!IsAnimatorParameterWithTypeExist(controller, parameter, typeof(bool)))
+            {
+                throw new ParameterNotExistException(parameter, typeof(bool));
+            }
+
             AnimatorControllerLayer newLayer = new AnimatorControllerLayer
             {
                 name = layerName,
@@ -375,6 +398,11 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceState">Reference state values, every fields will be copied from here except for the AnimationClip. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleMotionTimeLayer(AnimatorController controller, string layerName, string motionTimeParameter, Motion motion, bool writeDefaults, AnimatorState referenceState = null)
         {
+            if (!IsAnimatorParameterWithTypeExist(controller, motionTimeParameter, typeof(float)))
+            {
+                throw new ParameterNotExistException(motionTimeParameter, typeof(float));
+            }
+
             AnimatorControllerLayer newLayer = new AnimatorControllerLayer
             {
                 name = layerName,
