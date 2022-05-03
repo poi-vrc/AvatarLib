@@ -35,7 +35,7 @@ namespace Chocopoi.AvatarLib.Animations.Tests
         [OneTimeTearDown]
         public void RunAfterAnyTests()
         {
-#if !AVATARLIB_TEST_DEBUG
+#if AVATARLIB_TEST_DEBUG
             AssetDatabase.DeleteAsset(SampleFolder);
 #endif
         }

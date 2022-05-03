@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Chocopoi.AvatarLib.Animations;
 using NUnit.Framework;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.TestTools;
 using VRC.SDK3.Dynamics.PhysBone.Components;
@@ -15,9 +16,11 @@ namespace Chocopoi.AvatarLib.Animations.Tests
 
         private GameObject prefab2 = AssetDatabase.LoadAssetAtPath<GameObject>(SetupScript.SampleFolder + "/Prefabs/AnimationUtilsTestObject2.prefab");
 
+        private AnimatorController animator1 = AssetDatabase.LoadAssetAtPath<AnimatorController>(SetupScript.SampleFolder + "/Animators/AnimationUtilsTestAnimator1.controller");
+
         private static void MakeDebugAnimAsset(AnimationClip clip, string testName)
         {
-#if !AVATARLIB_TEST_DEBUG
+#if AVATARLIB_TEST_DEBUG
             if (!AssetDatabase.IsValidFolder(SetupScript.SampleFolder))
             {
                 Debug.LogError("Could not create debug anim because the sample folder does not exist: " + testName);
@@ -26,6 +29,18 @@ namespace Chocopoi.AvatarLib.Animations.Tests
 #endif
         }
 
+        private static void MakeDebugAnimatorAsset(AnimatorController controller, string testName)
+        {
+#if AVATARLIB_TEST_DEBUG
+            if (!AssetDatabase.IsValidFolder(SetupScript.SampleFolder))
+            {
+                Debug.LogError("Could not create debug animator because the sample folder does not exist: " + testName);
+            }
+            AssetDatabase.CreateAsset(controller, SetupScript.SampleFolder + "/Test_Debug_Animator_" + testName + ".controller");
+#endif
+        }
+
+        #region GetRelativePath
         //
         // GetRelativePath
         //
@@ -64,7 +79,9 @@ namespace Chocopoi.AvatarLib.Animations.Tests
             string path = AnimationUtils.GetRelativePath(obj6, null, "AnimationUtilsTestObject1/", "/Object7");
             Assert.AreEqual("AnimationUtilsTestObject1/Object2/Object3/Object6/Object7", path);
         }
+        #endregion
 
+        #region SetSingleFrameGameObjectEnabledCurves
         //
         // SetSingleFrameGameObjectEnabledCurves
         //
@@ -131,7 +148,9 @@ namespace Chocopoi.AvatarLib.Animations.Tests
             AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", 0.0f);
             AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", 0.0f);
         }
+        #endregion
 
+        #region SetSingleFrameComponentEnabledCurves
         //
         // SetSingleFrameComponentEnabledCurves
         //
@@ -196,7 +215,9 @@ namespace Chocopoi.AvatarLib.Animations.Tests
             AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", typeof(VRCPhysBone));
             AssertValidIsActiveThreeFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", typeof(VRCPhysBone));
         }
+        #endregion
 
+        #region SetGameObjectEnabledCurves
         //
         // SetGameObjectEnabledCurves
         //
@@ -251,5 +272,283 @@ namespace Chocopoi.AvatarLib.Animations.Tests
             AssertValidIsActiveThreeFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", typeof(GameObject));
             AssertValidIsActiveThreeFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", typeof(GameObject));
         }
+        #endregion
+
+        #region RemoveAnimatorLayers
+        //
+        // RemoveAnimatorLayers
+        //
+        [Test]
+        public void RemoveAnimatorLayers_ShouldRemoveOnlyRegexMatches()
+        {
+            AnimationUtils.RemoveAnimatorLayers(animator1, "^testTestTEST.");
+            Assert.AreEqual(4, animator1.layers.Length);
+        }
+        #endregion
+
+        #region RemoveAnimatorParameters
+        //
+        // RemoveAnimatorLayers
+        //
+        [Test]
+        public void RemoveAnimatorParameters_ShouldRemoveOnlyRegexMatches()
+        {
+            AnimationUtils.RemoveAnimatorParameters(animator1, ".+para$");
+            Assert.AreEqual(3, animator1.parameters.Length);
+        }
+        #endregion
+
+        #region AddAnimatorParameter
+        //
+        // AddAnimatorParameter
+        //
+
+        private static bool IsParameterOfTypeExist(AnimatorController controller, string parameter, AnimatorControllerParameterType type)
+        {
+            foreach (AnimatorControllerParameter p in controller.parameters)
+            {
+                if (p.name == parameter)
+                {
+                    if (p.type == type)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
+
+        [Test]
+        public void AddAnimatorParameter_ShouldHaveAnIntegerParameter()
+        {
+            AnimationUtils.AddAnimatorParameter(animator1, "test1para", 0);
+            Assert.True(IsParameterOfTypeExist(animator1, "test1para", AnimatorControllerParameterType.Int));
+        }
+
+        [Test]
+        public void AddAnimatorParameter_ShouldHaveAFloatParameter()
+        {
+            AnimationUtils.AddAnimatorParameter(animator1, "test2para", 0.0f);
+            Assert.True(IsParameterOfTypeExist(animator1, "test2para", AnimatorControllerParameterType.Float));
+        }
+
+        [Test]
+        public void AddAnimatorParameter_ShouldHaveABoolParameter()
+        {
+            AnimationUtils.AddAnimatorParameter(animator1, "test3para", false);
+            Assert.True(IsParameterOfTypeExist(animator1, "test3para", AnimatorControllerParameterType.Bool));
+        }
+        #endregion
+
+        #region CopyAnimatorStateFields
+        //
+        // CopyAnimatorStateFields
+        //
+
+        private static AnimatorState GenerateDummyState()
+        {
+            AnimatorState newState = new AnimatorState
+            {
+                behaviours = new StateMachineBehaviour[] {
+                    null
+                },
+                cycleOffset = 4,
+                cycleOffsetParameter = "alsogood",
+                cycleOffsetParameterActive = false,
+                iKOnFeet = false,
+                mirror = true,
+                mirrorParameter = "fakegood",
+                mirrorParameterActive = true,
+                speed = 2,
+                speedParameter = "",
+                speedParameterActive = false,
+                timeParameter = "timepara",
+                timeParameterActive = true
+            };
+            return newState;
+        }
+
+        [Test]
+        public void CopyAnimatorStateFields_ShouldCopyFieldsCorrectly()
+        {
+            AnimatorState refState = GenerateDummyState();
+            AnimatorState newState = new AnimatorState();
+
+            AnimationUtils.CopyAnimatorStateFields(refState, newState);
+
+            Assert.AreEqual(refState.behaviours, newState.behaviours);
+            Assert.AreEqual(refState.cycleOffset, newState.cycleOffset);
+            Assert.AreEqual(refState.cycleOffsetParameter, newState.cycleOffsetParameter);
+            Assert.AreEqual(refState.cycleOffsetParameterActive, newState.cycleOffsetParameterActive);
+            Assert.AreEqual(refState.iKOnFeet, newState.iKOnFeet);
+            Assert.AreEqual(refState.mirror, newState.mirror);
+            Assert.AreEqual(refState.mirrorParameter, newState.mirrorParameter);
+            Assert.AreEqual(refState.mirrorParameterActive, newState.mirrorParameterActive);
+            Assert.AreEqual(refState.speed, newState.speed);
+            Assert.AreEqual(refState.speedParameter, newState.speedParameter);
+            Assert.AreEqual(refState.speedParameterActive, newState.speedParameterActive);
+            Assert.AreEqual(refState.timeParameter, newState.timeParameter);
+            Assert.AreEqual(refState.timeParameterActive, newState.timeParameterActive);
+        }
+        #endregion
+
+        #region CopyAnimatorTransitionFields
+        //
+        // CopyAnimatorTransitionFields
+        //
+        private static AnimatorStateTransition GenerateDummyStateTransition()
+        {
+            AnimatorStateTransition newTransition = new AnimatorStateTransition
+            {
+                canTransitionToSelf = false,
+                duration = 1,
+                exitTime = 0.1f,
+                hasExitTime = true,
+                hasFixedDuration = true,
+                //newTransition.interruptionSource = null;
+                isExit = false,
+                mute = false,
+                offset = 3,
+                orderedInterruption = true,
+                solo = false,
+                conditions = new AnimatorCondition[] { new AnimatorCondition() }
+            };
+            return newTransition;
+        }
+
+        [Test]
+        public void CopyAnimatorTransitionFields_ShouldCopyFieldsCorrectly()
+        {
+            AnimatorStateTransition refTransition = GenerateDummyStateTransition();
+            AnimatorStateTransition newTransition = new AnimatorStateTransition();
+
+            AnimationUtils.CopyAnimatorStateTransitionFields(refTransition, newTransition);
+
+            Assert.AreEqual(refTransition.canTransitionToSelf, newTransition.canTransitionToSelf);
+            Assert.AreEqual(refTransition.duration, newTransition.duration);
+            Assert.AreEqual(refTransition.exitTime, newTransition.exitTime);
+            Assert.AreEqual(refTransition.hasExitTime, newTransition.hasExitTime);
+            Assert.AreEqual(refTransition.hasFixedDuration, newTransition.hasFixedDuration);
+            Assert.AreEqual(refTransition.isExit, newTransition.isExit);
+            Assert.AreEqual(refTransition.mute, newTransition.mute);
+            Assert.AreEqual(refTransition.offset, newTransition.offset);
+            Assert.AreEqual(refTransition.orderedInterruption, newTransition.orderedInterruption);
+            Assert.AreEqual(refTransition.solo, newTransition.solo);
+            Assert.AreEqual(refTransition.conditions, newTransition.conditions);
+        }
+        #endregion
+
+        #region IsAnimatorParameterWithTypeExist
+        //
+        // IsAnimatorParameterWithTypeExist
+        //
+
+        [Test]
+        public void IsAnimatorParameterWithTypeExist_ShouldReturnCorrectValues()
+        {
+            AnimationUtils.AddAnimatorParameter(animator1, "type1para", true);
+            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Int));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Float));
+
+            AnimationUtils.AddAnimatorParameter(animator1, "type2para", 1);
+            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Int));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Float));
+
+            AnimationUtils.AddAnimatorParameter(animator1, "type3para", 0.0f);
+            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Float));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Int));
+
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type4para", AnimatorControllerParameterType.Bool));
+
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type5para", AnimatorControllerParameterType.Int));
+
+            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type6para", AnimatorControllerParameterType.Float));
+        }
+        #endregion
+
+        #region GenerateAnyStateLayer
+        //
+        // GenerateAnyStateLayer
+        //
+
+        [Test]
+        public void GenerateAnyStateLayer_ShouldCreateWithNoErrors()
+        {
+            // TODO: asserts for this unit test
+            AnimatorController animator = new AnimatorController();
+
+            AnimationUtils.AddAnimatorParameter(animator, "anystate1para", 0);
+
+            AnimationClip motion1 = new AnimationClip();
+            motion1.name = "Motion1";
+            AnimationClip motion2 = new AnimationClip();
+            motion2.name = "Motion2";
+            AnimationClip motion3 = new AnimationClip();
+            motion3.name = "Motion3";
+
+            Dictionary<int, Motion> pairs = new Dictionary<int, Motion>();
+
+            pairs.Add(0, motion1);
+            pairs.Add(1, motion2);
+            pairs.Add(2, motion3);
+
+            AnimationUtils.GenerateAnyStateLayer(animator, "AnyStateTest", "anystate1para", pairs, true);
+
+            MakeDebugAnimatorAsset(animator, "GenerateAnyStateLayer_ShouldCreateWithNoErrors");
+        }
+        #endregion
+
+        #region GenerateSingleToggleLayer
+        //
+        // GenerateSingleToggleLayer
+        //
+
+        [Test]
+        public void GenerateSingleToggleLayer_ShouldCreateWithNoErrors()
+        {
+            // TODO: asserts for this unit test
+            AnimatorController animator = new AnimatorController();
+
+            AnimationUtils.AddAnimatorParameter(animator, "toggle1para", false);
+
+            AnimationClip motion1 = new AnimationClip();
+            motion1.name = "Motion1";
+            AnimationClip motion2 = new AnimationClip();
+            motion2.name = "Motion2";
+
+            AnimationUtils.GenerateSingleToggleLayer(animator, "SingleToggleTest", "toggle1para", motion1, motion2, true);
+
+            MakeDebugAnimatorAsset(animator, "GenerateSingleToggleLayer_ShouldCreateWithNoErrors");
+        }
+        #endregion
+
+        #region GenerateSingleMotionTimeLayer
+        //
+        // GenerateSingleMotionTimeLayer
+        //
+
+        [Test]
+        public void GenerateSingleMotionTimeLayer_ShouldCreateWithNoErrors()
+        {
+            // TODO: asserts for this unit test
+            AnimatorController animator = new AnimatorController();
+
+            AnimationUtils.AddAnimatorParameter(animator, "time1para", 0.0f);
+
+            AnimationClip motion1 = new AnimationClip();
+            motion1.name = "Motion1";
+
+            AnimationUtils.GenerateSingleMotionTimeLayer(animator, "MotionTimeTest", "time1para", motion1, true);
+
+            MakeDebugAnimatorAsset(animator, "GenerateSingleMotionTimeLayer_ShouldCreateWithNoErrors");
+        }
+        #endregion
     }
 }

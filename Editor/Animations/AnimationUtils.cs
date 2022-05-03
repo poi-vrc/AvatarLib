@@ -233,7 +233,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// </summary>
         /// <param name="oldTransition">Old transition</param>
         /// <param name="newTransition">New transition</param>
-        public static void CopyAnimatorTransitionFields(AnimatorStateTransition oldTransition, AnimatorStateTransition newTransition)
+        public static void CopyAnimatorStateTransitionFields(AnimatorStateTransition oldTransition, AnimatorStateTransition newTransition)
         {
             newTransition.canTransitionToSelf = oldTransition.canTransitionToSelf;
             newTransition.duration = oldTransition.duration;
@@ -274,7 +274,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// Sets all fields of <code>newTransition</code> to default configuration
         /// </summary>
         /// <param name="newTransition">newTransition</param>
-        public static void SetAnimatorTransitionFieldsToDefault(AnimatorStateTransition newTransition)
+        public static void SetAnimatorStateTransitionFieldsToDefault(AnimatorStateTransition newTransition)
         {
             newTransition.canTransitionToSelf = true;
             newTransition.duration = 0;
@@ -290,11 +290,18 @@ namespace Chocopoi.AvatarLib.Animations
             newTransition.conditions = new AnimatorCondition[] { };
         }
 
-        public static bool IsAnimatorParameterWithTypeExist(AnimatorController controller, string parameter, System.Type type)
+        /// <summary>
+        /// Returns whether the animator has the parameter with the provided type
+        /// </summary>
+        /// <param name="controller">The animator to search</param>
+        /// <param name="parameter">Parameter string</param>
+        /// <param name="type">Type</param>
+        /// <returns>A boolean</returns>
+        public static bool IsAnimatorParameterWithTypeExist(AnimatorController controller, string parameter, AnimatorControllerParameterType type)
         {
             foreach (AnimatorControllerParameter p in controller.parameters)
             {
-                if (p.name == parameter && p.GetType() == type)
+                if (p.name == parameter && p.type == type)
                 {
                     return true;
                 }
@@ -315,7 +322,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateAnyStateLayer(AnimatorController controller, string layerName, string parameter, Dictionary<int, Motion> pairs, bool writeDefaults, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, parameter, typeof(int)))
+            if (!IsAnimatorParameterWithTypeExist(controller, parameter, AnimatorControllerParameterType.Int))
             {
                 throw new ParameterNotExistException(parameter, typeof(int));
             }
@@ -362,11 +369,11 @@ namespace Chocopoi.AvatarLib.Animations
 
                 if (referenceTransition != null)
                 {
-                    CopyAnimatorTransitionFields(referenceTransition, newTransition);
+                    CopyAnimatorStateTransitionFields(referenceTransition, newTransition);
                 }
                 else
                 {
-                    SetAnimatorTransitionFieldsToDefault(newTransition);
+                    SetAnimatorStateTransitionFieldsToDefault(newTransition);
                 }
 
                 newTransition.AddCondition(AnimatorConditionMode.Equals, val, parameter);
@@ -389,7 +396,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleToggleLayer(AnimatorController controller, string layerName, string parameter, Motion offMotion, Motion onMotion, bool writeDefaults, bool inverted = false, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, parameter, typeof(bool)))
+            if (!IsAnimatorParameterWithTypeExist(controller, parameter, AnimatorControllerParameterType.Bool))
             {
                 throw new ParameterNotExistException(parameter, typeof(bool));
             }
@@ -433,13 +440,13 @@ namespace Chocopoi.AvatarLib.Animations
 
             if (referenceTransition != null)
             {
-                CopyAnimatorTransitionFields(referenceTransition, offStateTransition);
-                CopyAnimatorTransitionFields(referenceTransition, onStateTransition);
+                CopyAnimatorStateTransitionFields(referenceTransition, offStateTransition);
+                CopyAnimatorStateTransitionFields(referenceTransition, onStateTransition);
             }
             else
             {
-                SetAnimatorTransitionFieldsToDefault(offStateTransition);
-                SetAnimatorTransitionFieldsToDefault(onStateTransition);
+                SetAnimatorStateTransitionFieldsToDefault(offStateTransition);
+                SetAnimatorStateTransitionFieldsToDefault(onStateTransition);
             }
 
             // add condition
@@ -467,7 +474,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceState">Reference state values, every fields will be copied from here except for the AnimationClip. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleMotionTimeLayer(AnimatorController controller, string layerName, string motionTimeParameter, Motion motion, bool writeDefaults, AnimatorState referenceState = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, motionTimeParameter, typeof(float)))
+            if (!IsAnimatorParameterWithTypeExist(controller, motionTimeParameter, AnimatorControllerParameterType.Float))
             {
                 throw new ParameterNotExistException(motionTimeParameter, typeof(float));
             }
