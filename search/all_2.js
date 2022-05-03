@@ -12,5 +12,6 @@ var searchData=
   ['createsubmenu_9',['CreateSubMenu',['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils.html#a0be6f9944b229fe1d52047568d6900d4',1,'Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils.CreateSubMenu(VRCExpressionsMenu rootMenu, string controlName)'],['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_expression_menu_utils.html#a5afd26e7e9aff9c33c27086bd9bb4c95',1,'Chocopoi.AvatarLib.Expressions.ExpressionMenuUtils.CreateSubMenu(VRCExpressionsMenu rootMenu, string controlName, List&lt; VRCExpressionsMenu.Control &gt; controls)']]],
   ['createworldconstraint_10',['CreateWorldConstraint',['../class_chocopoi_1_1_avatar_lib_1_1_world_constraint_1_1_world_constraint_utils.html#af30baee1f657feb50743195d35fb1f42',1,'Chocopoi::AvatarLib::WorldConstraint::WorldConstraintUtils']]],
   ['expressions_11',['Expressions',['../namespace_chocopoi_1_1_avatar_lib_1_1_expressions.html',1,'Chocopoi::AvatarLib']]],
-  ['worldconstraint_12',['WorldConstraint',['../namespace_chocopoi_1_1_avatar_lib_1_1_world_constraint.html',1,'Chocopoi::AvatarLib']]]
+  ['tests_12',['Tests',['../namespace_chocopoi_1_1_avatar_lib_1_1_animations_1_1_tests.html',1,'Chocopoi::AvatarLib::Animations']]],
+  ['worldconstraint_13',['WorldConstraint',['../namespace_chocopoi_1_1_avatar_lib_1_1_world_constraint.html',1,'Chocopoi::AvatarLib']]]
 ];
