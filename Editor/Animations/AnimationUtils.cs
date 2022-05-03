@@ -9,7 +9,7 @@ namespace Chocopoi.AvatarLib.Animations
     /// <summary>
     /// An utility class for creating and modifying animations and animators
     /// </summary>
-    class AnimationUtils
+    public class AnimationUtils
     {
         //Referenced and modified from https://answers.unity.com/questions/8500/how-can-i-get-the-full-path-to-a-gameobject.html
         /// <summary>

@@ -9,6 +9,11 @@
         "email": "poi@chocopoi.com",
         "url": "https://github.com/poi-vrc"
     },
+    "samples": [{
+        "displayName": "Samples for Unit Testing",
+        "description": "Contains files that are used for Unit Testing",
+        "path": "Samples/SamplesUnitTesting"
+    }],
     "documentationUrl": "https://github.com/poi-vrc/AvatarLib",
-    "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html"
+    "licensesUrl": "https://www.gnu.org/licenses/lgpl-3.0.html"
 }
