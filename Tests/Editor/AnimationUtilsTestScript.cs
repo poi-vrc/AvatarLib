@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Chocopoi.AvatarLib.Animations;
 using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEditor;
-using Chocopoi.AvatarLib.Animations;
 using VRC.SDK3.Dynamics.PhysBone.Components;
 
 namespace Chocopoi.AvatarLib.Animations.Tests
@@ -190,7 +190,7 @@ namespace Chocopoi.AvatarLib.Animations.Tests
             MakeDebugAnimAsset(clip, "SetComponentEnabledCurves_ShouldGenerateThreeFrameCurve");
 
             Assert.AreEqual(2.0f / 30.0f, clip.length);
-            
+
             AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", typeof(VRCPhysBone));
             AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", typeof(VRCPhysBone));
             AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", typeof(VRCPhysBone));
