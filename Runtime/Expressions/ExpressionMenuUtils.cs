@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using VRC.SDK3.Avatars.ScriptableObjects;
 
+#if VRC_SDK_VRCSDK3
 namespace Chocopoi.AvatarLib.Expressions
 {
     /// <summary>
@@ -203,3 +204,4 @@ namespace Chocopoi.AvatarLib.Expressions
         }
     }
 }
+#endif

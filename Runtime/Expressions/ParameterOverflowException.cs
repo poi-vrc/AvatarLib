@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#if VRC_SDK_VRCSDK3
 namespace Chocopoi.AvatarLib.Expressions
 {
     public class ParameterOverflowException : Exception
@@ -19,3 +20,4 @@ namespace Chocopoi.AvatarLib.Expressions
         }
     }
 }
+#endif
