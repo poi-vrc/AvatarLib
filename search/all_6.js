@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['menuoverflowexception_0',['MenuOverflowException',['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_menu_overflow_exception.html',1,'Chocopoi.AvatarLib.Expressions.MenuOverflowException'],['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_menu_overflow_exception.html#a016f1791c27c17b51259e1110334990d',1,'Chocopoi.AvatarLib.Expressions.MenuOverflowException.MenuOverflowException()'],['../class_chocopoi_1_1_avatar_lib_1_1_expressions_1_1_menu_overflow_exception.html#a5c4fdb4b246d32e6d938d48a6e5914d6',1,'Chocopoi.AvatarLib.Expressions.MenuOverflowException.MenuOverflowException(string controlName, int amount)']]],
-  ['menuoverflowexception_2ecs_1',['MenuOverflowException.cs',['../_menu_overflow_exception_8cs.html',1,'']]]
+  ['parameternotexistexception_0',['ParameterNotExistException',['../class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_parameter_not_exist_exception.html',1,'Chocopoi.AvatarLib.Animations.ParameterNotExistException'],['../class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_parameter_not_exist_exception.html#abce4866ac9a705ca6f11269c986c7c4c',1,'Chocopoi.AvatarLib.Animations.ParameterNotExistException.ParameterNotExistException()'],['../class_chocopoi_1_1_avatar_lib_1_1_animations_1_1_parameter_not_exist_exception.html#ac7888595420073b3372813b91c11bcc8',1,'Chocopoi.AvatarLib.Animations.ParameterNotExistException.ParameterNotExistException(string parameter, Type type)']]],
+  ['parameternotexistexception_2ecs_1',['ParameterNotExistException.cs',['../_parameter_not_exist_exception_8cs.html',1,'']]],
+  ['parameteroverflowexception_2ecs_2',['ParameterOverflowException.cs',['../_parameter_overflow_exception_8cs.html',1,'']]]
 ];
