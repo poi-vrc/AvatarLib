@@ -37,6 +37,16 @@ namespace Chocopoi.AvatarLib.Animations
             return prefix + path + suffix;
         }
 
+        private static string[] GetGameObjectPaths(GameObject[] gameObjects, Transform untilTransform, string prefix, string suffix)
+        {
+            var paths = new string[gameObjects.Length];
+            for (var i = 0; i < paths.Length; i++)
+            {
+                paths[i] = GetRelativePath(gameObjects[i].transform, untilTransform, prefix, suffix);
+            }
+            return paths;
+        }
+
         /// <summary>
         /// Sets GameObject active (m_IsActive) property enabled or not enabled in the first frame only (time = 0.0f)
         /// </summary>
@@ -45,12 +55,14 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="enabled">Set to enabled or not</param>
         /// <param name="prefix">Prefix to be added to the relative path</param>
         /// <param name="suffix">Suffix to be added to the relative path</param>
-        public static void SetSingleFrameGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, bool enabled, string prefix = "", string suffix = "")
+        public static void SetSingleFrameGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, bool enabled, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
-            foreach (GameObject obj in gameObjects)
-            {
-                clip.SetCurve(GetRelativePath(obj.transform, null, prefix, suffix), typeof(GameObject), "m_IsActive", AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
-            }
+            SetSingleFrameGameObjectEnabledCurves(clip, GetGameObjectPaths(gameObjects, untilTransform, prefix, suffix), enabled);
+        }
+
+        public static void SetSingleFrameGameObjectEnabledCurves(AnimationClip clip, string[] gameObjectPaths, bool enabled)
+        {
+            SetGameObjectEnabledCurves(clip, gameObjectPaths, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
         }
 
         /// <summary>
@@ -59,14 +71,30 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="clip">The AnimationClip to modify</param>
         /// <param name="gameObjects">GameObjects to animate</param>
         /// <param name="curve">The curve to set</param>
+        /// <param name="untilTransform">Finds the relative path until this transform (exclusive). Keeping it <code>null</code> will find the very first parent</param>
         /// <param name="prefix">Prefix to be added to the relative path</param>
         /// <param name="suffix">Suffix to be added to the relative path</param>
-        public static void SetGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, AnimationCurve curve, string prefix = "", string suffix = "")
+        public static void SetGameObjectEnabledCurves(AnimationClip clip, GameObject[] gameObjects, AnimationCurve curve, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
-            foreach (GameObject obj in gameObjects)
+            SetGameObjectEnabledCurves(clip, GetGameObjectPaths(gameObjects, untilTransform, prefix, suffix), curve);
+        }
+
+        public static void SetGameObjectEnabledCurves(AnimationClip clip, string[] gameObjectPaths, AnimationCurve curve)
+        {
+            foreach (string path in gameObjectPaths)
             {
-                clip.SetCurve(GetRelativePath(obj.transform, null, prefix, suffix), typeof(GameObject), "m_IsActive", curve);
+                SetGameObjectEnabledCurve(clip, path, curve);
             }
+        }
+
+        public static void SetSingleFrameGameObjectEnabledCurve(AnimationClip clip, string path, bool enabled)
+        {
+            SetGameObjectEnabledCurve(clip, path, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
+        }
+
+        public static void SetGameObjectEnabledCurve(AnimationClip clip, string path, AnimationCurve curve)
+        {
+            clip.SetCurve(path, typeof(GameObject), "m_IsActive", curve);
         }
 
         /// <summary>
@@ -77,12 +105,9 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="enabled">Set to enabled or not</param>
         /// <param name="prefix">Prefix to be added to the relative path</param>
         /// <param name="suffix">Suffix to be added to the relative path</param>
-        public static void SetSingleFrameComponentEnabledCurves(AnimationClip clip, Component[] comps, bool enabled, string prefix = "", string suffix = "")
+        public static void SetSingleFrameComponentEnabledCurves(AnimationClip clip, Component[] comps, bool enabled, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
-            foreach (Component comp in comps)
-            {
-                clip.SetCurve(GetRelativePath(comp.transform, null, prefix, suffix), typeof(GameObject), "m_Enabled", AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
-            }
+            SetComponentEnabledCurves(clip, comps, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f), untilTransform, prefix, suffix);
         }
 
         /// <summary>
@@ -93,12 +118,32 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="curve">The curve to set</param>
         /// <param name="prefix">Prefix to be added to the relative path</param>
         /// <param name="suffix">Suffix to be added to the relative path</param>
-        public static void SetComponentEnabledCurves(AnimationClip clip, Component[] comps, AnimationCurve curve, string prefix = "", string suffix = "")
+        public static void SetComponentEnabledCurves(AnimationClip clip, Component[] comps, AnimationCurve curve, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
             foreach (Component comp in comps)
             {
-                clip.SetCurve(GetRelativePath(comp.transform, null, prefix, suffix), comp.GetType(), "m_Enabled", curve);
+                SetComponentEnabledCurve(clip, comp, curve, untilTransform, prefix, suffix);
             }
+        }
+
+        public static void SetSingleFrameComponentEnabledCurve(AnimationClip clip, Component comp, bool enabled, Transform untilTransform = null, string prefix = "", string suffix = "")
+        {
+            SetComponentEnabledCurve(clip, comp, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f), untilTransform, prefix, suffix);
+        }
+
+        public static void SetComponentEnabledCurve(AnimationClip clip, Component comp, AnimationCurve curve, Transform untilTransform = null, string prefix = "", string suffix = "")
+        {
+            clip.SetCurve(GetRelativePath(comp.transform, untilTransform, prefix, suffix), comp.GetType(), "m_Enabled", curve);
+        }
+
+        public static void SetSingleFrameBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, float value)
+        {
+            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Constant(0.0f, 0.0f, value));
+        }
+
+        public static void SetBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, AnimationCurve curve)
+        {
+            clip.SetCurve(path, typeof(SkinnedMeshRenderer), "blendShape." + blendshapeName, curve);
         }
 
         /// <summary>
