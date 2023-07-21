@@ -1,9 +1,9 @@
 {
-    "name": "com.chocopoi.vrc.avatarlib.Runtime.Tests",
+    "name": "com.chocopoi.vrc.avatarlib.Editor.Tests",
     "references": [
-        "com.chocopoi.vrc.avatarlib.Runtime",
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "UnityEditor.TestRunner",
+        "com.chocopoi.vrc.avatarlib.Editor"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,5 +1,5 @@
 {
-    "name": "com.chocopoi.vrc.avatarlib.Runtime",
+    "name": "com.chocopoi.vrc.avatarlib.Editor",
     "references": [],
     "includePlatforms": [
         "Editor"
