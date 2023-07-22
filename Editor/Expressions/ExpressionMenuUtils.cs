@@ -94,13 +94,20 @@ namespace Chocopoi.AvatarLib.Expressions
         public static void RemoveExpressionMenuControls(VRCExpressionsMenu menu, Regex regex)
         {
             // clean up menu
+            
+            List<VRCExpressionsMenu.Control> toDelete = new List<VRCExpressionsMenu.Control>();
 
-            foreach (VRCExpressionsMenu.Control control in menu.controls)
+            foreach (VRCExpressionsMenu.Control p in menu.controls)
             {
-                if (regex.IsMatch(control.name))
+                if (regex.IsMatch(p.name))
                 {
-                    menu.controls.Remove(control);
+                    toDelete.Add(p);
                 }
+            }
+
+            foreach (VRCExpressionsMenu.Control p in toDelete)
+            {
+                menu.controls.Remove(p);
             }
         }
 
