@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -372,11 +373,23 @@ namespace Chocopoi.AvatarLib.Animations
                 throw new ParameterNotExistException(parameter, typeof(int));
             }
 
-            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            var stateMachine = new AnimatorStateMachine()
             {
                 name = layerName,
-                defaultWeight = 1,
-                stateMachine = new AnimatorStateMachine()
+                hideFlags = HideFlags.HideInHierarchy
+            };
+
+            var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
+            if (controllerAssetPath != null)
+            {
+                AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
+            }
+
+            var newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                stateMachine = stateMachine,
+                defaultWeight = 1.0f,
             };
 
             if (!pairs.Keys.Contains(0))
@@ -389,7 +402,7 @@ namespace Chocopoi.AvatarLib.Animations
                 // Create state
 
                 pairs.TryGetValue(val, out Motion motion);
-                AnimatorState newState = newLayer.stateMachine.AddState(motion.name);
+                AnimatorState newState = newLayer.stateMachine.AddState(motion.name, new Vector3(370, 20 - 100 * val, 0));
 
                 if (val == 0)
                 {
