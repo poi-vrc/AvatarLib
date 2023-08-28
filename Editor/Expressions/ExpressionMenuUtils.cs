@@ -94,7 +94,7 @@ namespace Chocopoi.AvatarLib.Expressions
         public static void RemoveExpressionMenuControls(VRCExpressionsMenu menu, Regex regex)
         {
             // clean up menu
-            
+
             List<VRCExpressionsMenu.Control> toDelete = new List<VRCExpressionsMenu.Control>();
 
             foreach (VRCExpressionsMenu.Control p in menu.controls)

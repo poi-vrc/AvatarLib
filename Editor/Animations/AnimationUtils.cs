@@ -142,6 +142,11 @@ namespace Chocopoi.AvatarLib.Animations
             SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Constant(0.0f, 0.0f, value));
         }
 
+        public static void SetLinearZeroToHundredBlendshapeCurve(AnimationClip clip, string path, string blendshapeName)
+        {
+            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Linear(0.0f, 0.0f, 100.0f, 100.0f));
+        }
+
         public static void SetBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, AnimationCurve curve)
         {
             clip.SetCurve(path, typeof(SkinnedMeshRenderer), "blendShape." + blendshapeName, curve);
@@ -519,6 +524,8 @@ namespace Chocopoi.AvatarLib.Animations
                 offStateTransition.AddCondition(AnimatorConditionMode.IfNot, 0, parameter);
                 onStateTransition.AddCondition(AnimatorConditionMode.If, 0, parameter);
             }
+
+            controller.AddLayer(newLayer);
         }
 
         /// <summary>
@@ -559,6 +566,8 @@ namespace Chocopoi.AvatarLib.Animations
             state.motion = motion;
             state.timeParameter = motionTimeParameter;
             state.timeParameterActive = true;
+
+            controller.AddLayer(newLayer);
         }
     }
 }

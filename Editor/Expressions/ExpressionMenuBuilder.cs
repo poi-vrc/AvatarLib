@@ -223,7 +223,11 @@ namespace Chocopoi.AvatarLib.Expressions
             {
                 name = name,
                 type = VRCExpressionsMenu.Control.ControlType.SubMenu,
-                subMenu = subMenu
+                subMenu = subMenu,
+                parameter = new VRCExpressionsMenu.Control.Parameter()
+                {
+                    name = ""
+                }
             };
 
             if (parameterOnOpen != null)
