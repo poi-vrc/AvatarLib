@@ -385,7 +385,7 @@ namespace Chocopoi.AvatarLib.Animations
             };
 
             var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
-            if (controllerAssetPath != null)
+            if (controllerAssetPath != null && controllerAssetPath != "")
             {
                 AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
             }

@@ -76,3 +76,10 @@ crashlytics-build.properties
 # Ignore generated docs
 docs/
 docs
+
+# Ignore auto-generated assets
+/[Aa]ssets/_ALGeneratedAssets
+/[Aa]ssets/_ALGeneratedAssets.meta
+
+# Ignore vscode
+.vscode

@@ -3,6 +3,7 @@ name: dotnet-format
 on:
   push:
     paths:
+      - "Assets/_ALDevOnly/**.cs"
       - "Packages/com.chocopoi.vrc.avatarlib/**.cs"
       - ".editorconfig"
 
@@ -22,5 +23,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Run dotnet format
+      - name: Run code dotnet format
         run: dotnet format "Packages/com.chocopoi.vrc.avatarlib" --folder --check --verbosity diagnostic
+
+      - name: Run tests dotnet format
+        run: dotnet format "Assets/_ALDevOnly" --folder --check --verbosity diagnostic

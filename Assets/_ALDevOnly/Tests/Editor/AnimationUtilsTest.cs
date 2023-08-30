@@ -8,36 +8,34 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using VRC.SDK3.Dynamics.PhysBone.Components;
 
-namespace Chocopoi.AvatarLib.Animations.Tests
+namespace Chocopoi.AvatarLib.Tests
 {
-    public class AnimationUtilsTestScript
+    public class AnimationUtilsTest : EditorTestBase
     {
-        private GameObject prefab1 = AssetDatabase.LoadAssetAtPath<GameObject>(SetupScript.SampleFolder + "/Prefabs/AnimationUtilsTestObject1.prefab");
+        private GameObject prefab1;
+        private GameObject prefab2;
+        private AnimatorController animator1;
 
-        private GameObject prefab2 = AssetDatabase.LoadAssetAtPath<GameObject>(SetupScript.SampleFolder + "/Prefabs/AnimationUtilsTestObject2.prefab");
-
-        private AnimatorController animator1 = AssetDatabase.LoadAssetAtPath<AnimatorController>(SetupScript.SampleFolder + "/Animators/AnimationUtilsTestAnimator1.controller");
+        public override void SetUp()
+        {
+            base.SetUp();
+            prefab1 = InstantiateEditorTestPrefab("ALTest_Object1.prefab");
+            prefab2 = InstantiateEditorTestPrefab("ALTest_Object2.prefab");
+            animator1 = LoadEditorTestAsset<AnimatorController>("ALTest_Animator.controller");
+        }
 
         private static void MakeDebugAnimAsset(AnimationClip clip, string testName)
         {
-#if AVATARLIB_TEST_DEBUG
-            if (!AssetDatabase.IsValidFolder(SetupScript.SampleFolder))
-            {
-                Debug.LogError("Could not create debug anim because the sample folder does not exist: " + testName);
-            }
-            AssetDatabase.CreateAsset(clip, SetupScript.SampleFolder + "/Test_Debug_" + testName + ".anim");
-#endif
+            // #if AVATARLIB_TEST_DEBUG
+            //             AssetDatabase.CreateAsset(clip, GeneratedAssetsPath + "/Test_Debug_" + testName + ".anim");
+            // #endif
         }
 
         private static void MakeDebugAnimatorAsset(AnimatorController controller, string testName)
         {
-#if AVATARLIB_TEST_DEBUG
-            if (!AssetDatabase.IsValidFolder(SetupScript.SampleFolder))
-            {
-                Debug.LogError("Could not create debug animator because the sample folder does not exist: " + testName);
-            }
-            AssetDatabase.CreateAsset(controller, SetupScript.SampleFolder + "/Test_Debug_Animator_" + testName + ".controller");
-#endif
+            // #if AVATARLIB_TEST_DEBUG
+            //             AssetDatabase.CreateAsset(controller, GeneratedAssetsPath + "/Test_Debug_Animator_" + testName + ".controller");
+            // #endif
         }
 
         #region GetRelativePath
