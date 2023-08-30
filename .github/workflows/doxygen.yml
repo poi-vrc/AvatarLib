@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - "Doxyfile"
-      - "**.cs"
+      - "Packages/com.chocopoi.vrc.avatarlib/**.cs"
       
 jobs:
   doxygen:

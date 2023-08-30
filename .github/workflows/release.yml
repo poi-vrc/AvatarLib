@@ -19,11 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
     
-      - name: get version
+      - name: Obtain package version
         id: version
         uses: notiz-dev/github-action-json-property@7c8cf5cc36eb85d8d287a8086a39dac59628eb31
         with: 
-            path: "package.json"
+            path: "Packages/${{env.packageName}}/package.json"
             prop_path: "version"
     
       - name: Set Environment Variables
@@ -35,24 +35,31 @@ jobs:
         uses: thedoctor0/zip-release@09336613be18a8208dfa66bd57efafd9e2685657
         with:
           type: "zip"
-          exclusions: '*.git* .editorconfig'
-          filename: "${{env.zipFile}}"
-      
-      # TODO: we can't use this because AvatarLib lives in the root, not Packages
-      
-      # - run: find "." -name \*.meta >> metaList
+          directory: "Packages/${{env.packageName}}/"
+          filename: "../../${{env.zipFile}}" # make the zip file two directories up, since we start two directories in above
           
-      # - name: Create UnityPackage
-        # uses: pCYSl5EDgo/create-unitypackage@cfcd3cf0391a5ef1306342794866a9897c32af0b
-        # with:
-          # package-path: ${{ env.unityPackage }}
-          # include-files: metaList
+      - run: find "Packages/${{env.packageName}}/" -name \*.meta >> metaList
+          
+      - name: Create UnityPackage
+        uses: pCYSl5EDgo/create-unitypackage@cfcd3cf0391a5ef1306342794866a9897c32af0b
+        with:
+          package-path: ${{ env.unityPackage }}
+          include-files: metaList
+          
+      # upload artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: DT-${{ steps.version.outputs.prop }}
+          path: |
+            ${{ env.zipFile }}
+            ${{ env.unityPackage }}
+            Packages/${{ env.packageName }}/package.json
         
       - name: Make Release
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
         with:
           tag_name: ${{ steps.version.outputs.prop }}
-          # ${{ env.unityPackage }}
           files: |
+            ${{ env.unityPackage }}
             ${{ env.zipFile }}
             package.json
