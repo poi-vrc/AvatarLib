@@ -449,25 +449,25 @@ namespace Chocopoi.AvatarLib.Tests
         public void IsAnimatorParameterWithTypeExist_ShouldReturnCorrectValues()
         {
             AnimationUtils.AddAnimatorParameter(animator1, "type1para", true);
-            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Bool));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Int));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type1para", AnimatorControllerParameterType.Float));
+            Assert.True(AnimationUtils.IsAnimatorParameterExists(animator1, "type1para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type1para", AnimatorControllerParameterType.Int));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type1para", AnimatorControllerParameterType.Float));
 
             AnimationUtils.AddAnimatorParameter(animator1, "type2para", 1);
-            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Int));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Bool));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type2para", AnimatorControllerParameterType.Float));
+            Assert.True(AnimationUtils.IsAnimatorParameterExists(animator1, "type2para", AnimatorControllerParameterType.Int));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type2para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type2para", AnimatorControllerParameterType.Float));
 
             AnimationUtils.AddAnimatorParameter(animator1, "type3para", 0.0f);
-            Assert.True(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Float));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Bool));
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type3para", AnimatorControllerParameterType.Int));
+            Assert.True(AnimationUtils.IsAnimatorParameterExists(animator1, "type3para", AnimatorControllerParameterType.Float));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type3para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type3para", AnimatorControllerParameterType.Int));
 
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type4para", AnimatorControllerParameterType.Bool));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type4para", AnimatorControllerParameterType.Bool));
 
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type5para", AnimatorControllerParameterType.Int));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type5para", AnimatorControllerParameterType.Int));
 
-            Assert.False(AnimationUtils.IsAnimatorParameterWithTypeExist(animator1, "type6para", AnimatorControllerParameterType.Float));
+            Assert.False(AnimationUtils.IsAnimatorParameterExists(animator1, "type6para", AnimatorControllerParameterType.Float));
         }
         #endregion
 
