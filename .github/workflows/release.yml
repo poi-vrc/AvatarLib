@@ -1,9 +1,15 @@
-name: Build Release
+name: Package and Release
 
-on: 
-  workflow_dispatch:
+on:
   push:
-    branches: master
+    paths:
+      - "Packages/**"
+  pull_request:
+    paths:
+      - "Packages/**"
+  create:
+    ref_type: tag
+  workflow_dispatch:
 
 env:
   packageName: "com.chocopoi.vrc.avatarlib"
@@ -57,9 +63,22 @@ jobs:
         
       - name: Make Release
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
+        if: ${{ github.ref_type == 'tag' }}
         with:
           tag_name: ${{ steps.version.outputs.prop }}
           files: |
             ${{ env.unityPackage }}
             ${{ env.zipFile }}
             package.json
+
+      - name: Tag name
+        id: tag
+        if: ${{ github.ref_type == 'tag' }}
+        run: echo ::set-output name=name::${GITHUB_REF#refs/tags/}
+
+      - name: Create UPM Branches
+        uses: hecomi/create-upm-branch-action@main
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          git-tag: ${{ steps.tag.outputs.name }}
+          pkg-root-dir-path: Packages/${{ env.packageName }}
