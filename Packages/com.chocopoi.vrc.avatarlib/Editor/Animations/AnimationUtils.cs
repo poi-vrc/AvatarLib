@@ -144,7 +144,7 @@ namespace Chocopoi.AvatarLib.Animations
 
         public static void SetLinearZeroToHundredBlendshapeCurve(AnimationClip clip, string path, string blendshapeName)
         {
-            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Linear(0.0f, 0.0f, 100.0f, 100.0f));
+            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Linear(0.0f, 0.0f, 100.0f / clip.frameRate, 100.0f));
         }
 
         public static void SetBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, AnimationCurve curve)
