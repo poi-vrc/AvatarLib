@@ -465,11 +465,23 @@ namespace Chocopoi.AvatarLib.Animations
                 throw new ParameterNotExistException(parameter, typeof(bool));
             }
 
-            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            var stateMachine = new AnimatorStateMachine()
             {
                 name = layerName,
-                defaultWeight = 1,
-                stateMachine = new AnimatorStateMachine()
+                hideFlags = HideFlags.HideInHierarchy
+            };
+
+            var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
+            if (controllerAssetPath != null && controllerAssetPath != "")
+            {
+                AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
+            }
+
+            var newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                stateMachine = stateMachine,
+                defaultWeight = 1.0f,
             };
 
             // create states
@@ -545,11 +557,23 @@ namespace Chocopoi.AvatarLib.Animations
                 throw new ParameterNotExistException(motionTimeParameter, typeof(float));
             }
 
-            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            var stateMachine = new AnimatorStateMachine()
             {
                 name = layerName,
-                defaultWeight = 1,
-                stateMachine = new AnimatorStateMachine()
+                hideFlags = HideFlags.HideInHierarchy
+            };
+
+            var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
+            if (controllerAssetPath != null && controllerAssetPath != "")
+            {
+                AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
+            }
+
+            var newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                stateMachine = stateMachine,
+                defaultWeight = 1.0f,
             };
 
             AnimatorState state = newLayer.stateMachine.AddState(motion.name);
