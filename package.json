@@ -1,0 +1,14 @@
+{
+    "name": "com.chocopoi.vrc.avatarlib",
+    "displayName": "AvatarLib",
+    "version": "1.0.0-alpha.6",
+    "description": "Contains a bunch of quick-to-use APIs for plugins and applications to add, modify a VRChat avatar.",
+    "unity": "2019.4",
+    "author": {
+        "name": "chocopoi",
+        "email": "poi@chocopoi.com",
+        "url": "https://github.com/poi-vrc"
+    },
+    "documentationUrl": "https://github.com/poi-vrc/AvatarLib",
+    "licensesUrl": "https://www.gnu.org/licenses/lgpl-3.0.html"
+}
