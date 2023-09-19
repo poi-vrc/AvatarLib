@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.TestTools;
-using VRC.SDK3.Dynamics.PhysBone.Components;
 
 namespace Chocopoi.AvatarLib.Tests
 {
@@ -158,7 +157,7 @@ namespace Chocopoi.AvatarLib.Tests
         {
             AnimationClip clip = new AnimationClip();
 
-            VRCPhysBone[] comps = prefab2.GetComponentsInChildren<VRCPhysBone>();
+            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
 
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, comps, true);
 
@@ -178,7 +177,7 @@ namespace Chocopoi.AvatarLib.Tests
         {
             AnimationClip clip = new AnimationClip();
 
-            VRCPhysBone[] comps = prefab2.GetComponentsInChildren<VRCPhysBone>();
+            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
 
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, comps, false);
 
@@ -199,7 +198,7 @@ namespace Chocopoi.AvatarLib.Tests
             AnimationClip clip = new AnimationClip();
             clip.frameRate = 30.0f;
 
-            VRCPhysBone[] comps = prefab2.GetComponentsInChildren<VRCPhysBone>();
+            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
 
             AnimationUtils.SetComponentEnabledCurves(clip, comps, GenerateDummyThreeFrameCurve());
 
@@ -208,10 +207,10 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(2.0f / 30.0f, clip.length);
 
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", typeof(VRCPhysBone));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", typeof(VRCPhysBone));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", typeof(VRCPhysBone));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", typeof(VRCPhysBone));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", typeof(Cloth));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", typeof(Cloth));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", typeof(Cloth));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", typeof(Cloth));
         }
         #endregion
 

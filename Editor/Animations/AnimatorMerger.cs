@@ -3,7 +3,9 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+#if VRC_SDK_VRCSDK3
 using VRC.SDK3.Avatars.Components;
+#endif
 
 namespace Chocopoi.AvatarLib.Animations
 {

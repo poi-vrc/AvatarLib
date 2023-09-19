@@ -5,7 +5,6 @@ using Chocopoi.AvatarLib.Animations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;
-using VRC.SDK3.Avatars.ScriptableObjects;
 
 namespace Chocopoi.AvatarLib.WorldConstraint
 {
