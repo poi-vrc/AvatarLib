@@ -19,17 +19,20 @@ namespace Chocopoi.AvatarLib.Expressions
 
         private string parentName;
 
-        private VRCExpressionsMenu.Control.Parameter parentParameterOnOpen;
+        private string parentParameterOnOpen;
+
+        private Texture2D parentIcon;
 
         private float parentValueOnOpen;
 
         // Used for BeginNewSubMenu()
-        private ExpressionMenuBuilder(ExpressionMenuBuilder parentBuilder, string parentName, VRCExpressionsMenu.Control.Parameter parentParameterOnOpen, float parentValueOnOpen)
+        private ExpressionMenuBuilder(ExpressionMenuBuilder parentBuilder, string parentName, string parentParameterOnOpen, Texture2D parentIcon, float parentValueOnOpen)
         {
             menu = ScriptableObject.CreateInstance<VRCExpressionsMenu>();
             this.parentName = parentName;
             this.parentBuilder = parentBuilder;
             this.parentParameterOnOpen = parentParameterOnOpen;
+            this.parentIcon = parentIcon;
             this.parentValueOnOpen = parentValueOnOpen;
         }
 
@@ -88,18 +91,6 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddButton(string name, string parameter, float value)
         {
-            return AddButton(name, new VRCExpressionsMenu.Control.Parameter() { name = parameter }, value);
-        }
-
-        /// <summary>
-        /// Adds a button
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="parameter">The synced parameter to be controlled</param>
-        /// <param name="value">The value to be set to the synced parameter</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddButton(string name, VRCExpressionsMenu.Control.Parameter parameter, float value)
-        {
             if (menu.controls.Count >= 8)
             {
                 throw new MenuOverflowException(name, menu.controls.Count);
@@ -109,32 +100,13 @@ namespace Chocopoi.AvatarLib.Expressions
             {
                 name = name,
                 type = VRCExpressionsMenu.Control.ControlType.Button,
-                parameter = parameter,
+                parameter = new VRCExpressionsMenu.Control.Parameter() { name = parameter },
                 value = value
             });
             return this;
         }
 
-        /// <summary>
-        /// Adds a toggle
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="parameter">The synced parameter to be controlled</param>
-        /// <param name="value">The value to be set to the synced parameter</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddToggle(string name, string parameter, float value)
-        {
-            return AddToggle(name, new VRCExpressionsMenu.Control.Parameter() { name = parameter }, value);
-        }
-
-        /// <summary>
-        /// Adds a toggle
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="parameter">The synced parameter to be controlled</param>
-        /// <param name="value">The value to be set to the synced parameter</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddToggle(string name, VRCExpressionsMenu.Control.Parameter parameter, float value)
+        public ExpressionMenuBuilder AddToggle(string name, string parameter, float value, Texture2D icon = null)
         {
             if (menu.controls.Count >= 8)
             {
@@ -145,8 +117,9 @@ namespace Chocopoi.AvatarLib.Expressions
             {
                 name = name,
                 type = VRCExpressionsMenu.Control.ControlType.Toggle,
-                parameter = parameter,
-                value = value
+                parameter = new VRCExpressionsMenu.Control.Parameter() { name = parameter },
+                value = value,
+                icon = icon
             });
             return this;
         }
@@ -158,21 +131,9 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
         /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
         /// <returns>A new ExpressionMenuBuilder of the newly created sub-menu</returns>
-        public ExpressionMenuBuilder BeginNewSubMenu(string name, string parameterOnOpen, float valueOnOpen = 1)
+        public ExpressionMenuBuilder BeginNewSubMenu(string name, Texture2D icon = null, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return BeginNewSubMenu(name, new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen }, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Begins a new sub-menu, used together with <code>EndNewSubMenu()</code>
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>A new ExpressionMenuBuilder of the newly created sub-menu</returns>
-        public ExpressionMenuBuilder BeginNewSubMenu(string name, VRCExpressionsMenu.Control.Parameter parameterOnOpen = null, float valueOnOpen = 1)
-        {
-            return new ExpressionMenuBuilder(this, name, parameterOnOpen, valueOnOpen);
+            return new ExpressionMenuBuilder(this, name, parameterOnOpen, icon, valueOnOpen);
         }
 
         /// <summary>
@@ -187,21 +148,8 @@ namespace Chocopoi.AvatarLib.Expressions
             {
                 throw new System.Exception("There is no parent builder to end! Are you not using together with BeginNewSubMenu()?");
             }
-            parentBuilder.AddSubMenu(parentName, menu, parentParameterOnOpen, parentValueOnOpen);
+            parentBuilder.AddSubMenu(parentName, menu, parentIcon, parentParameterOnOpen, parentValueOnOpen);
             return parentBuilder;
-        }
-
-        /// <summary>
-        /// Adds a sub-menu
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="subMenu">The sub-menu to be added</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddSubMenu(string name, VRCExpressionsMenu subMenu, string parameterOnOpen, float valueOnOpen = 1)
-        {
-            return AddSubMenu(name, subMenu, new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen }, valueOnOpen);
         }
 
         /// <summary>
@@ -212,7 +160,7 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
         /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddSubMenu(string name, VRCExpressionsMenu subMenu, VRCExpressionsMenu.Control.Parameter parameterOnOpen = null, float valueOnOpen = 1)
+        public ExpressionMenuBuilder AddSubMenu(string name, VRCExpressionsMenu subMenu, Texture2D icon = null, string parameterOnOpen = null, float valueOnOpen = 1)
         {
             if (menu.controls.Count >= 8)
             {
@@ -224,6 +172,7 @@ namespace Chocopoi.AvatarLib.Expressions
                 name = name,
                 type = VRCExpressionsMenu.Control.ControlType.SubMenu,
                 subMenu = subMenu,
+                icon = icon,
                 parameter = new VRCExpressionsMenu.Control.Parameter()
                 {
                     name = ""
@@ -232,7 +181,10 @@ namespace Chocopoi.AvatarLib.Expressions
 
             if (parameterOnOpen != null)
             {
-                control.parameter = parameterOnOpen;
+                control.parameter = new VRCExpressionsMenu.Control.Parameter()
+                {
+                    name = parameterOnOpen
+                };
                 control.value = valueOnOpen;
             }
 
@@ -241,34 +193,9 @@ namespace Chocopoi.AvatarLib.Expressions
             return this;
         }
 
-        /// <summary>
-        /// Adds a two-axis puppet, with empty labels
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="horizontalParameter">The synced parameter for the horizontal axis</param>
-        /// <param name="verticalParameter">The synced parameter for the vertical axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddTwoAxisPuppet(string name, string horizontalParameter, string verticalParameter, string parameterOnOpen = null, float valueOnOpen = 1)
-        {
-            return AddTwoAxisPuppet(name, horizontalParameter, verticalParameter, "", "", parameterOnOpen, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a two-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="horizontalParameter">The synced parameter for the horizontal axis</param>
-        /// <param name="verticalParameter">The synced parameter for the vertical axis</param>
-        /// <param name="horizontalLabel">The label for the horizontal axis</param>
-        /// <param name="verticalLabel">The label for the vertical axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddTwoAxisPuppet(string name, string horizontalParameter, string verticalParameter, string horizontalLabel, string verticalLabel, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return AddTwoAxisPuppet(name, new VRCExpressionsMenu.Control.Parameter() { name = horizontalParameter }, new VRCExpressionsMenu.Control.Parameter() { name = verticalParameter }, new VRCExpressionsMenu.Control.Label { name = horizontalLabel }, new VRCExpressionsMenu.Control.Label { name = verticalLabel }, parameterOnOpen, valueOnOpen);
+            return AddTwoAxisPuppet(name, horizontalParameter, verticalParameter, new VRCExpressionsMenu.Control.Label { name = horizontalLabel }, new VRCExpressionsMenu.Control.Label { name = verticalLabel }, parameterOnOpen, valueOnOpen);
         }
 
         /// <summary>
@@ -284,38 +211,6 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddTwoAxisPuppet(string name, string horizontalParameter, string verticalParameter, VRCExpressionsMenu.Control.Label horizontalLabel, VRCExpressionsMenu.Control.Label verticalLabel, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return AddTwoAxisPuppet(name, new VRCExpressionsMenu.Control.Parameter() { name = horizontalParameter }, new VRCExpressionsMenu.Control.Parameter() { name = verticalParameter }, horizontalLabel, verticalLabel, parameterOnOpen, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a two-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="horizontalParameter">The synced parameter for the horizontal axis</param>
-        /// <param name="verticalParameter">The synced parameter for the vertical axis</param>
-        /// <param name="horizontalLabel">The label for the horizontal axis</param>
-        /// <param name="verticalLabel">The label for the vertical axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddTwoAxisPuppet(string name, VRCExpressionsMenu.Control.Parameter horizontalParameter, VRCExpressionsMenu.Control.Parameter verticalParameter, VRCExpressionsMenu.Control.Label horizontalLabel, VRCExpressionsMenu.Control.Label verticalLabel, string parameterOnOpen, float valueOnOpen = 1)
-        {
-            return AddTwoAxisPuppet(name, horizontalParameter, verticalParameter, horizontalLabel, verticalLabel, new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen }, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a two-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="horizontalParameter">The synced parameter for the horizontal axis</param>
-        /// <param name="verticalParameter">The synced parameter for the vertical axis</param>
-        /// <param name="horizontalLabel">The label for the horizontal axis</param>
-        /// <param name="verticalLabel">The label for the vertical axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddTwoAxisPuppet(string name, VRCExpressionsMenu.Control.Parameter horizontalParameter, VRCExpressionsMenu.Control.Parameter verticalParameter, VRCExpressionsMenu.Control.Label horizontalLabel, VRCExpressionsMenu.Control.Label verticalLabel, VRCExpressionsMenu.Control.Parameter parameterOnOpen = null, float valueOnOpen = 1)
-        {
             if (menu.controls.Count >= 8)
             {
                 throw new MenuOverflowException(name, menu.controls.Count);
@@ -327,8 +222,8 @@ namespace Chocopoi.AvatarLib.Expressions
                 type = VRCExpressionsMenu.Control.ControlType.TwoAxisPuppet,
                 subParameters = new VRCExpressionsMenu.Control.Parameter[]
                 {
-                    horizontalParameter,
-                    verticalParameter
+                    new VRCExpressionsMenu.Control.Parameter() { name = horizontalParameter },
+                    new VRCExpressionsMenu.Control.Parameter() { name = verticalParameter }
                 },
                 labels = new VRCExpressionsMenu.Control.Label[]
                 {
@@ -339,7 +234,7 @@ namespace Chocopoi.AvatarLib.Expressions
 
             if (parameterOnOpen != null)
             {
-                control.parameter = parameterOnOpen;
+                control.parameter = new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen };
                 control.value = valueOnOpen;
             }
 
@@ -348,40 +243,9 @@ namespace Chocopoi.AvatarLib.Expressions
             return this;
         }
 
-        /// <summary>
-        /// Adds a four-axis puppet, with empty labels
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="upParameter">The synced parameter for the up axis</param>
-        /// <param name="rightParameter">The synced parameter for the right axis</param>
-        /// <param name="downParameter">The synced parameter for the down axis</param>
-        /// <param name="leftParameter">The synced parameter for the left axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddFourAxisPuppet(string name, string upParameter, string rightParameter, string downParameter, string leftParameter, string parameterOnOpen = null, float valueOnOpen = 1)
-        {
-            return AddFourAxisPuppet(name, upParameter, rightParameter, downParameter, leftParameter, "", "", "", "", parameterOnOpen, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a four-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="upParameter">The synced parameter for the up axis</param>
-        /// <param name="rightParameter">The synced parameter for the right axis</param>
-        /// <param name="downParameter">The synced parameter for the down axis</param>
-        /// <param name="leftParameter">The synced parameter for the left axis</param>
-        /// <param name="upLabel">The label for the up axis</param>
-        /// <param name="rightLabel">The label for the right axis</param>
-        /// <param name="downLabel">The label for the down axis</param>
-        /// <param name="leftLabel">The label for the left axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddFourAxisPuppet(string name, string upParameter, string rightParameter, string downParameter, string leftParameter, string upLabel, string rightLabel, string downLabel, string leftLabel, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return AddFourAxisPuppet(name, upParameter, rightParameter, downParameter, leftParameter, new VRCExpressionsMenu.Control.Label() { name = upLabel }, new VRCExpressionsMenu.Control.Label() { name = rightLabel }, new VRCExpressionsMenu.Control.Label() { name = downLabel }, new VRCExpressionsMenu.Control.Label() { name = leftLabel }, parameterOnOpen, valueOnOpen);
+            return AddFourAxisPuppet(name, upParameter, rightParameter, downParameter, leftParameter, new VRCExpressionsMenu.Control.Label { name = upLabel }, new VRCExpressionsMenu.Control.Label { name = rightLabel }, new VRCExpressionsMenu.Control.Label { name = downLabel }, new VRCExpressionsMenu.Control.Label { name = leftLabel }, parameterOnOpen, valueOnOpen);
         }
 
         /// <summary>
@@ -401,46 +265,6 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddFourAxisPuppet(string name, string upParameter, string rightParameter, string downParameter, string leftParameter, VRCExpressionsMenu.Control.Label upLabel, VRCExpressionsMenu.Control.Label rightLabel, VRCExpressionsMenu.Control.Label downLabel, VRCExpressionsMenu.Control.Label leftLabel, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return AddFourAxisPuppet(name, new VRCExpressionsMenu.Control.Parameter() { name = upParameter }, new VRCExpressionsMenu.Control.Parameter() { name = rightParameter }, new VRCExpressionsMenu.Control.Parameter() { name = downParameter }, new VRCExpressionsMenu.Control.Parameter() { name = leftParameter }, upLabel, rightLabel, downLabel, leftLabel, parameterOnOpen, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a four-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="upParameter">The synced parameter for the up axis</param>
-        /// <param name="rightParameter">The synced parameter for the right axis</param>
-        /// <param name="downParameter">The synced parameter for the down axis</param>
-        /// <param name="leftParameter">The synced parameter for the left axis</param>
-        /// <param name="upLabel">The label for the up axis</param>
-        /// <param name="rightLabel">The label for the right axis</param>
-        /// <param name="downLabel">The label for the down axis</param>
-        /// <param name="leftLabel">The label for the left axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddFourAxisPuppet(string name, VRCExpressionsMenu.Control.Parameter upParameter, VRCExpressionsMenu.Control.Parameter rightParameter, VRCExpressionsMenu.Control.Parameter downParameter, VRCExpressionsMenu.Control.Parameter leftParameter, VRCExpressionsMenu.Control.Label upLabel, VRCExpressionsMenu.Control.Label rightLabel, VRCExpressionsMenu.Control.Label downLabel, VRCExpressionsMenu.Control.Label leftLabel, string parameterOnOpen, float valueOnOpen = 1)
-        {
-            return AddFourAxisPuppet(name, upParameter, rightParameter, downParameter, leftParameter, upLabel, rightLabel, downLabel, leftLabel, new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen }, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a four-axis puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="upParameter">The synced parameter for the up axis</param>
-        /// <param name="rightParameter">The synced parameter for the right axis</param>
-        /// <param name="downParameter">The synced parameter for the down axis</param>
-        /// <param name="leftParameter">The synced parameter for the left axis</param>
-        /// <param name="upLabel">The label for the up axis</param>
-        /// <param name="rightLabel">The label for the right axis</param>
-        /// <param name="downLabel">The label for the down axis</param>
-        /// <param name="leftLabel">The label for the left axis</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddFourAxisPuppet(string name, VRCExpressionsMenu.Control.Parameter upParameter, VRCExpressionsMenu.Control.Parameter rightParameter, VRCExpressionsMenu.Control.Parameter downParameter, VRCExpressionsMenu.Control.Parameter leftParameter, VRCExpressionsMenu.Control.Label upLabel, VRCExpressionsMenu.Control.Label rightLabel, VRCExpressionsMenu.Control.Label downLabel, VRCExpressionsMenu.Control.Label leftLabel, VRCExpressionsMenu.Control.Parameter parameterOnOpen = null, float valueOnOpen = 1)
-        {
             if (menu.controls.Count >= 8)
             {
                 throw new MenuOverflowException(name, menu.controls.Count);
@@ -452,10 +276,10 @@ namespace Chocopoi.AvatarLib.Expressions
                 type = VRCExpressionsMenu.Control.ControlType.FourAxisPuppet,
                 subParameters = new VRCExpressionsMenu.Control.Parameter[]
                 {
-                    upParameter,
-                    rightParameter,
-                    downParameter,
-                    leftParameter
+                    new VRCExpressionsMenu.Control.Parameter() { name = upParameter },
+                    new VRCExpressionsMenu.Control.Parameter() { name = rightParameter },
+                    new VRCExpressionsMenu.Control.Parameter() { name = downParameter },
+                    new VRCExpressionsMenu.Control.Parameter() { name = leftParameter }
                 },
                 labels = new VRCExpressionsMenu.Control.Label[]
                 {
@@ -468,7 +292,7 @@ namespace Chocopoi.AvatarLib.Expressions
 
             if (parameterOnOpen != null)
             {
-                control.parameter = parameterOnOpen;
+                control.parameter = new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen };
                 control.value = valueOnOpen;
             }
 
@@ -487,32 +311,6 @@ namespace Chocopoi.AvatarLib.Expressions
         /// <returns>This ExpressionMenuBuilder for further operations</returns>
         public ExpressionMenuBuilder AddRadialPuppet(string name, string rotationParameter, string parameterOnOpen = null, float valueOnOpen = 1)
         {
-            return AddRadialPuppet(name, new VRCExpressionsMenu.Control.Parameter() { name = rotationParameter }, parameterOnOpen, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a radial puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="rotationParameter">The synced parameter for the rotation</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddRadialPuppet(string name, VRCExpressionsMenu.Control.Parameter rotationParameter, string parameterOnOpen, float valueOnOpen = 1)
-        {
-            return AddRadialPuppet(name, rotationParameter, new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen }, valueOnOpen);
-        }
-
-        /// <summary>
-        /// Adds a radial puppet
-        /// </summary>
-        /// <param name="name">Display name</param>
-        /// <param name="rotationParameter">The synced parameter for the rotation</param>
-        /// <param name="parameterOnOpen">The synced parameter to be controlled when it is opened</param>
-        /// <param name="valueOnOpen">The value to be set to the synced parameter when it is opened</param>
-        /// <returns>This ExpressionMenuBuilder for further operations</returns>
-        public ExpressionMenuBuilder AddRadialPuppet(string name, VRCExpressionsMenu.Control.Parameter rotationParameter, VRCExpressionsMenu.Control.Parameter parameterOnOpen = null, float valueOnOpen = 1)
-        {
             if (menu.controls.Count >= 8)
             {
                 throw new MenuOverflowException(name, menu.controls.Count);
@@ -524,13 +322,13 @@ namespace Chocopoi.AvatarLib.Expressions
                 type = VRCExpressionsMenu.Control.ControlType.RadialPuppet,
                 subParameters = new VRCExpressionsMenu.Control.Parameter[]
                 {
-                    rotationParameter
+                    new VRCExpressionsMenu.Control.Parameter() { name = rotationParameter }
                 }
             };
 
             if (parameterOnOpen != null)
             {
-                control.parameter = parameterOnOpen;
+                control.parameter = new VRCExpressionsMenu.Control.Parameter() { name = parameterOnOpen };
                 control.value = valueOnOpen;
             }
 

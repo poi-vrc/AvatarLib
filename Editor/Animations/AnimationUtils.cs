@@ -144,7 +144,7 @@ namespace Chocopoi.AvatarLib.Animations
 
         public static void SetLinearZeroToHundredBlendshapeCurve(AnimationClip clip, string path, string blendshapeName)
         {
-            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Linear(0.0f, 0.0f, 100.0f, 100.0f));
+            SetBlendshapeCurve(clip, path, blendshapeName, AnimationCurve.Linear(0.0f, 0.0f, 100.0f / clip.frameRate, 100.0f));
         }
 
         public static void SetBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, AnimationCurve curve)
@@ -346,19 +346,32 @@ namespace Chocopoi.AvatarLib.Animations
         /// </summary>
         /// <param name="controller">The animator to search</param>
         /// <param name="parameter">Parameter string</param>
-        /// <param name="type">Type</param>
+        /// <param name="type">Type (null to not filter type)</param>
         /// <returns>A boolean</returns>
-        public static bool IsAnimatorParameterWithTypeExist(AnimatorController controller, string parameter, AnimatorControllerParameterType type)
+        public static bool IsAnimatorParameterExists(AnimatorController controller, string parameter, AnimatorControllerParameterType? type = null)
         {
             foreach (AnimatorControllerParameter p in controller.parameters)
             {
-                if (p.name == parameter && p.type == type)
+                if (p.name == parameter && (type == null || p.type == type.Value))
                 {
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public static AnimatorControllerParameterType? GetAnimatorParameterType(AnimatorController controller, string parameter)
+        {
+            foreach (AnimatorControllerParameter p in controller.parameters)
+            {
+                if (p.name == parameter)
+                {
+                    return p.type;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -373,7 +386,7 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateAnyStateLayer(AnimatorController controller, string layerName, string parameter, Dictionary<int, Motion> pairs, bool writeDefaults, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, parameter, AnimatorControllerParameterType.Int))
+            if (!IsAnimatorParameterExists(controller, parameter, AnimatorControllerParameterType.Int))
             {
                 throw new ParameterNotExistException(parameter, typeof(int));
             }
@@ -385,7 +398,7 @@ namespace Chocopoi.AvatarLib.Animations
             };
 
             var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
-            if (controllerAssetPath != null)
+            if (controllerAssetPath != null && controllerAssetPath != "")
             {
                 AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
             }
@@ -459,16 +472,28 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceTransition">Reference transition values, every fields will be copied, including conditions. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleToggleLayer(AnimatorController controller, string layerName, string parameter, Motion offMotion, Motion onMotion, bool writeDefaults, bool inverted = false, AnimatorState referenceState = null, AnimatorStateTransition referenceTransition = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, parameter, AnimatorControllerParameterType.Bool))
+            if (!IsAnimatorParameterExists(controller, parameter, AnimatorControllerParameterType.Bool))
             {
                 throw new ParameterNotExistException(parameter, typeof(bool));
             }
 
-            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            var stateMachine = new AnimatorStateMachine()
             {
                 name = layerName,
-                defaultWeight = 1,
-                stateMachine = new AnimatorStateMachine()
+                hideFlags = HideFlags.HideInHierarchy
+            };
+
+            var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
+            if (controllerAssetPath != null && controllerAssetPath != "")
+            {
+                AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
+            }
+
+            var newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                stateMachine = stateMachine,
+                defaultWeight = 1.0f,
             };
 
             // create states
@@ -539,16 +564,28 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="referenceState">Reference state values, every fields will be copied from here except for the AnimationClip. Keep it <code>null</code> to use default configuration.</param>
         public static void GenerateSingleMotionTimeLayer(AnimatorController controller, string layerName, string motionTimeParameter, Motion motion, bool writeDefaults, AnimatorState referenceState = null)
         {
-            if (!IsAnimatorParameterWithTypeExist(controller, motionTimeParameter, AnimatorControllerParameterType.Float))
+            if (!IsAnimatorParameterExists(controller, motionTimeParameter, AnimatorControllerParameterType.Float))
             {
                 throw new ParameterNotExistException(motionTimeParameter, typeof(float));
             }
 
-            AnimatorControllerLayer newLayer = new AnimatorControllerLayer
+            var stateMachine = new AnimatorStateMachine()
             {
                 name = layerName,
-                defaultWeight = 1,
-                stateMachine = new AnimatorStateMachine()
+                hideFlags = HideFlags.HideInHierarchy
+            };
+
+            var controllerAssetPath = AssetDatabase.GetAssetPath(controller);
+            if (controllerAssetPath != null && controllerAssetPath != "")
+            {
+                AssetDatabase.AddObjectToAsset(stateMachine, controllerAssetPath);
+            }
+
+            var newLayer = new AnimatorControllerLayer
+            {
+                name = layerName,
+                stateMachine = stateMachine,
+                defaultWeight = 1.0f,
             };
 
             AnimatorState state = newLayer.stateMachine.AddState(motion.name);

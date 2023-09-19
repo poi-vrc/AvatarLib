@@ -14,11 +14,11 @@ AvatarLib uses the Unity Package Manager (UPM) for version control. You can inst
 
 2. Press the `+` icon and `Add package from git URL...`
 
-3. Enter the URL: `https://github.com/poi-vrc/AvatarLib.git`
+3. Enter the URL: `https://github.com/poi-vrc/AvatarLib.git?path=Packages/com.chocopoi.vrc.avatarlib`
 
   - This URL tracks the latest `master` branch version
   - To change to a specific version, you can append `#1.x.x` at the end
-    - e.g. `https://github.com/poi-vrc/AvatarLib.git#1.0.0`
+    - e.g. `https://github.com/poi-vrc/AvatarLib.git?path=Packages/com.chocopoi.vrc.avatarlib#1.0.0`
   - For details, check https://docs.unity3d.com/Manual/upm-git.html
 
 ## How to update
@@ -152,4 +152,4 @@ To format code, do `dotnet-format ".\" --folder` in the repository root.
 
 ## License
 
-This project is licensed under the LGPLv3 License. [tl;dr](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))
+This project is licensed under the MIT License. [tl;dr](https://www.tldrlegal.com/license/mit-license)
