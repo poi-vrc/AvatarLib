@@ -269,10 +269,13 @@ namespace Chocopoi.AvatarLib.Animations
         {
             foreach (var param in animator.parameters)
             {
-                if (_parameters.TryGetValue(param.name, out var existingType) && param.type != existingType.type)
+                if (_parameters.TryGetValue(param.name, out var existingType))
                 {
-                    // throw exception if type mismatch
-                    throw new ParameterMismatchException(param.name, existingType.name, param.name);
+                    if (param.type != existingType.type)
+                    {
+                        // throw exception if type mismatch
+                        throw new ParameterMismatchException(param.name, existingType.name, param.name);
+                    }
                 }
                 else
                 {
