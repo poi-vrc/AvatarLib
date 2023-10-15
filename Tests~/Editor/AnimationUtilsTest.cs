@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Chocopoi.AvatarLib.Animations;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace Chocopoi.AvatarLib.Tests
 {

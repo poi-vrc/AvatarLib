@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using Chocopoi.AvatarLib.Animations;
+﻿using Chocopoi.AvatarLib.Animations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;

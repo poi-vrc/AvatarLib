@@ -1,7 +1,4 @@
 ﻿#if VRC_SDK_VRCSDK3
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using VRC.SDK3.Avatars.ScriptableObjects;
