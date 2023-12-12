@@ -6,14 +6,22 @@ on:
       - "**.cs"
       - ".github/unity-project/**/*"
       - ".github/workflows/unity-tests.yml"
-  pull_request:
-    paths:
-      - "**.cs"
 
 jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        unity-version: ['2019.4.31f1', '2021.3.33f1', '2022.3.6f1', '2022.3.15f1', '2023.2.2f1']
+        build-type: ['pure', 'vrcsdk']
+        exclude:
+          - unity-version: "2021.3.33f1"
+            build-type: "vrcsdk"
+          - unity-version: "2022.3.15f1"
+            build-type: "vrcsdk"
+          - unity-version: "2023.2.2f1"
+            build-type: "vrcsdk"
     steps:
       # Checkout
       - name: Checkout repository
@@ -31,7 +39,7 @@ jobs:
           mv [!.github]* .github/unity-project/Packages/com.chocopoi.vrc.avatarlib/
           mv .github/unity-project/* .
           rm -rf .github/unity-project
-          ls -l
+          ls -l 
           ls -l Packages/com.chocopoi.vrc.avatarlib
 
       # Cache
@@ -43,17 +51,21 @@ jobs:
             Library-
 
       - name: Resolve VPM Project
+        if: matrix.build-type == 'vrcsdk'
         run: |
+          mv Packages/vpm-manifest.${{ matrix.unity-version }}.json Packages/vpm-manifest.json
           dotnet tool install --global vrchat.vpm.cli
           vpm resolve project
 
       # Test
       - name: Run tests
-        uses: game-ci/unity-test-runner@v2
+        uses: game-ci/unity-test-runner@v4
         id: tests
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
+          checkName: Test Results (${{ matrix.unity-version }}, ${{ matrix.build-type }})
+          unityVersion: ${{ matrix.unity-version }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           testMode: 'all'
           customParameters: '-assemblyNames "com.chocopoi.vrc.avatarlib.Editor.Tests" -nographics'
