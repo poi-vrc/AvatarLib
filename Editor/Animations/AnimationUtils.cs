@@ -48,6 +48,16 @@ namespace Chocopoi.AvatarLib.Animations
             return paths;
         }
 
+        private static System.Tuple<string, System.Type>[] GetComponentPathsAndTypes(Component[] comps, Transform untilTransform, string prefix, string suffix)
+        {
+            var pathsAndTypes = new System.Tuple<string, System.Type>[comps.Length];
+            for (var i = 0; i < pathsAndTypes.Length; i++)
+            {
+                pathsAndTypes[i] = new System.Tuple<string, System.Type>(GetRelativePath(comps[i].transform, untilTransform, prefix, suffix), comps[i].GetType());
+            }
+            return pathsAndTypes;
+        }
+
         /// <summary>
         /// Sets GameObject active (m_IsActive) property enabled or not enabled in the first frame only (time = 0.0f)
         /// </summary>
@@ -108,7 +118,12 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="suffix">Suffix to be added to the relative path</param>
         public static void SetSingleFrameComponentEnabledCurves(AnimationClip clip, Component[] comps, bool enabled, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
-            SetComponentEnabledCurves(clip, comps, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f), untilTransform, prefix, suffix);
+            SetSingleFrameComponentEnabledCurves(clip, GetComponentPathsAndTypes(comps, untilTransform, prefix, suffix), enabled);
+        }
+
+        public static void SetSingleFrameComponentEnabledCurves(AnimationClip clip, System.Tuple<string, System.Type>[] compPathsAndTypes, bool enabled)
+        {
+            SetComponentEnabledCurves(clip, compPathsAndTypes, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
         }
 
         /// <summary>
@@ -121,20 +136,25 @@ namespace Chocopoi.AvatarLib.Animations
         /// <param name="suffix">Suffix to be added to the relative path</param>
         public static void SetComponentEnabledCurves(AnimationClip clip, Component[] comps, AnimationCurve curve, Transform untilTransform = null, string prefix = "", string suffix = "")
         {
-            foreach (Component comp in comps)
+            SetComponentEnabledCurves(clip, GetComponentPathsAndTypes(comps, untilTransform, prefix, suffix), curve);
+        }
+
+        public static void SetComponentEnabledCurves(AnimationClip clip, System.Tuple<string, System.Type>[] compPathsAndTypes, AnimationCurve curve)
+        {
+            foreach (var tuple in compPathsAndTypes)
             {
-                SetComponentEnabledCurve(clip, comp, curve, untilTransform, prefix, suffix);
+                SetComponentEnabledCurve(clip, tuple.Item1, tuple.Item2, curve);
             }
         }
 
-        public static void SetSingleFrameComponentEnabledCurve(AnimationClip clip, Component comp, bool enabled, Transform untilTransform = null, string prefix = "", string suffix = "")
+        public static void SetSingleFrameComponentEnabledCurve(AnimationClip clip, string path, System.Type type, bool enabled)
         {
-            SetComponentEnabledCurve(clip, comp, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f), untilTransform, prefix, suffix);
+            SetComponentEnabledCurve(clip, path, type, AnimationCurve.Constant(0.0f, 0.0f, enabled ? 1.0f : 0.0f));
         }
 
-        public static void SetComponentEnabledCurve(AnimationClip clip, Component comp, AnimationCurve curve, Transform untilTransform = null, string prefix = "", string suffix = "")
+        public static void SetComponentEnabledCurve(AnimationClip clip, string path, System.Type type, AnimationCurve curve)
         {
-            clip.SetCurve(GetRelativePath(comp.transform, untilTransform, prefix, suffix), comp.GetType(), "m_Enabled", curve);
+            clip.SetCurve(path, type, "m_Enabled", curve);
         }
 
         public static void SetSingleFrameBlendshapeCurve(AnimationClip clip, string path, string blendshapeName, float value)
