@@ -23,9 +23,7 @@ namespace Chocopoi.AvatarLib.Tests
 
         private static void MakeDebugAnimAsset(AnimationClip clip, string testName)
         {
-            // #if AVATARLIB_TEST_DEBUG
-            //             AssetDatabase.CreateAsset(clip, GeneratedAssetsPath + "/Test_Debug_" + testName + ".anim");
-            // #endif
+            AssetDatabase.CreateAsset(clip, "Assets/Test_Debug_" + testName + ".anim");
         }
 
         private static void MakeDebugAnimatorAsset(AnimatorController controller, string testName)
@@ -82,13 +80,13 @@ namespace Chocopoi.AvatarLib.Tests
         //
 
         // assert whether the first frame matches the expected value
-        private static void AssertValidIsActiveSingleFrameCurve(AnimationClip clip, string path, string propertyName, float expectedValue)
+        private static void AssertValidIsActiveSingleFrameCurve(AnimationClip clip, string path, string propertyName, float expectedValue, System.Type type)
         {
             AnimationCurve curve = AnimationUtility.GetEditorCurve(clip, new EditorCurveBinding()
             {
                 path = path,
                 propertyName = propertyName,
-                type = typeof(GameObject)
+                type = type
             });
 
             Assert.NotNull(curve);
@@ -115,10 +113,10 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(0.0f, clip.length);
 
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2", "m_IsActive", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3", "m_IsActive", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", 1.0f);
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2", "m_IsActive", 1.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3", "m_IsActive", 1.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", 1.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", 1.0f, typeof(GameObject));
         }
 
         [Test]
@@ -138,10 +136,10 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(0.0f, clip.length);
 
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2", "m_IsActive", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3", "m_IsActive", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", 0.0f);
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2", "m_IsActive", 0.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3", "m_IsActive", 0.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6", "m_IsActive", 0.0f, typeof(GameObject));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object2/Object3/Object6/Object7", "m_IsActive", 0.0f, typeof(GameObject));
         }
         #endregion
 
@@ -155,7 +153,7 @@ namespace Chocopoi.AvatarLib.Tests
         {
             AnimationClip clip = new AnimationClip();
 
-            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
+            var comps = prefab2.GetComponentsInChildren<AudioSource>();
 
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, comps, true);
 
@@ -164,10 +162,10 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(0.0f, clip.length);
 
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", 1.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", 1.0f);
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Audio1", "m_Enabled", 1.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Audio2", "m_Enabled", 1.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Object2/Audio3", "m_Enabled", 1.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object3/Audio4", "m_Enabled", 1.0f, typeof(AudioSource));
         }
 
         [Test]
@@ -175,7 +173,7 @@ namespace Chocopoi.AvatarLib.Tests
         {
             AnimationClip clip = new AnimationClip();
 
-            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
+            var comps = prefab2.GetComponentsInChildren<AudioSource>();
 
             AnimationUtils.SetSingleFrameComponentEnabledCurves(clip, comps, false);
 
@@ -184,19 +182,21 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(0.0f, clip.length);
 
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", 0.0f);
-            AssertValidIsActiveSingleFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", 0.0f);
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Audio1", "m_Enabled", 0.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Audio2", "m_Enabled", 0.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object1/Object2/Audio3", "m_Enabled", 0.0f, typeof(AudioSource));
+            AssertValidIsActiveSingleFrameCurve(clip, "Object3/Audio4", "m_Enabled", 0.0f, typeof(AudioSource));
         }
 
         [Test]
         public void SetComponentEnabledCurves_ShouldGenerateThreeFrameCurve()
         {
-            AnimationClip clip = new AnimationClip();
-            clip.frameRate = 30.0f;
+            AnimationClip clip = new AnimationClip
+            {
+                frameRate = 30.0f
+            };
 
-            Cloth[] comps = prefab2.GetComponentsInChildren<Cloth>();
+            var comps = prefab2.GetComponentsInChildren<AudioSource>();
 
             AnimationUtils.SetComponentEnabledCurves(clip, comps, GenerateDummyThreeFrameCurve());
 
@@ -205,10 +205,10 @@ namespace Chocopoi.AvatarLib.Tests
 
             Assert.AreEqual(2.0f / 30.0f, clip.length);
 
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone1", "m_Enabled", typeof(Cloth));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/PhysBone2", "m_Enabled", typeof(Cloth));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/PhysBone3", "m_Enabled", typeof(Cloth));
-            AssertValidIsActiveThreeFrameCurve(clip, "Object3/PhysBone4", "m_Enabled", typeof(Cloth));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Audio1", "m_Enabled", typeof(AudioSource));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Audio2", "m_Enabled", typeof(AudioSource));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object1/Object2/Audio3", "m_Enabled", typeof(AudioSource));
+            AssertValidIsActiveThreeFrameCurve(clip, "Object3/Audio4", "m_Enabled", typeof(AudioSource));
         }
         #endregion
 
