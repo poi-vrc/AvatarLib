@@ -35,11 +35,6 @@ jobs:
           rm -rf .github/unity-project
           ls -l
           ls -l Packages/${{ env.packageName }}
-
-      - name: Resolve VPM Project
-        run: |
-          dotnet tool install --global vrchat.vpm.cli
-          vpm resolve project
     
       - name: Obtain package version
         id: version
@@ -85,4 +80,4 @@ jobs:
           files: |
             ${{ env.zipFile }}
             ${{ env.unityPackage }}
-            package.json
+            Packages/${{ env.packageName }}/package.json
