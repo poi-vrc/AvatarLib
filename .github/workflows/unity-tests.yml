@@ -9,19 +9,18 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: Build and Test (${{ matrix.unity-version }}${{ matrix.import-vrcsdk && ', VRC' || '' }}${{ matrix.import-dynbone && ', DynBone' || '' }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        unity-version: ['2019.4.31f1', '2021.3.33f1', '2022.3.6f1', '2022.3.15f1', '2023.2.2f1']
-        build-type: ['pure', 'vrcsdk']
+        unity-version: ['2019.4.31f1', '2021.3.33f1', '2022.3.6f1', '2023.2.2f1']
+        import-vrcsdk: [false, true]
         exclude:
           - unity-version: "2021.3.33f1"
-            build-type: "vrcsdk"
-          - unity-version: "2022.3.15f1"
-            build-type: "vrcsdk"
+            import-vrcsdk: true
           - unity-version: "2023.2.2f1"
-            build-type: "vrcsdk"
+            import-vrcsdk: true
     steps:
       # Checkout
       - name: Checkout repository
@@ -46,9 +45,9 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-${{ matrix.unity-version }}-${{ matrix.import-vrcsdk }}-${{ matrix.import-dynbone }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-
+            Library-${{ matrix.unity-version }}-${{ matrix.import-vrcsdk }}-
 
       - name: Resolve VPM Project
         if: matrix.build-type == 'vrcsdk'
@@ -59,7 +58,7 @@ jobs:
 
       # Test
       - name: Run tests
-        uses: game-ci/unity-test-runner@v4
+        uses: game-ci/unity-test-runner@v4.0.0
         id: tests
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
